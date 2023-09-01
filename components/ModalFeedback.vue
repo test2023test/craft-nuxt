@@ -28,17 +28,24 @@
 					<div class="modal__wrap">
 						<div class="form-group">
 							<p class="form-group__label">Тема вопроса</p>
-							<div class="dropdown">
+							<div class="dropdown" ref="dropdown">
 								<div class="dropdown__value-box">
-									<input class="dropdown__value" type="text" placeholder="Выберите тему" disabled>
+									<input class="dropdown__value" type="text" placeholder="Выберите тему" disabled :value="inputValue">
 									<svg class="dropdown__arrow">
 										<use xlink:href="#dropdown-arrow"></use>
 									</svg>
 								</div>
 								<ul class="dropdown__options-list">
-									<li class="dropdown__option" data-value="Тема 1">Тема 1</li>
-									<li class="dropdown__option" data-value="Тема 2">Тема 2</li>
-									<li class="dropdown__option" data-value="Тема 3">Тема 3</li>
+									<li class="dropdown__option" data-value=""></li>
+									<li
+										v-for="topic of topicsList"
+										:key="topic.id"
+										class="dropdown__option"
+										:data-value="topic.title"
+										@click="inputValue = topic.title"
+									>
+										{{topic.title}}
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -71,12 +78,28 @@
 	</div>
 </template>
 <script setup>
+	const runtimeConfig = useRuntimeConfig();
 	import { ref } from "vue";
-	let isSuccess = ref(false);
+	let isSuccess = ref(false),
+		topicsList = ref([]);
+	const inputValue = ref('')
+
 	function changeIsSuccess()
 	{
-
 		isSuccess.value = !isSuccess.value;
+	}
+	getTopics();
+	function getTopics()
+	{
+		fetch(runtimeConfig.public.API_BASE_URL + 'feedback-topics/').then( async (data)=>{
+			let dataJson = await data.json();
+			topicsList.value = dataJson.topics;
+		})
+	}
+
+	optionsListInit()
+	function optionsListInit()
+	{
 	}
 </script>
 <style lang="scss">

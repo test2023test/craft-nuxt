@@ -14,7 +14,7 @@
 					<li class="header__nav-elem"><NuxtLink class="header__nav-link" to="/">Правила и призы</NuxtLink></li>
 					<li class="header__nav-elem"><NuxtLink class="header__nav-link" to="winners">Победители</NuxtLink></li>
 					<li class="header__nav-elem"><NuxtLink class="header__nav-link" to="where-to-buy">Где купить</NuxtLink></li>
-					<li class="header__nav-elem"><NuxtLink class="header__nav-link" to="#" data-modal="feedback">Обратная связь</NuxtLink></li>
+					<li class="header__nav-elem"><NuxtLink class="header__nav-link" data-modal="feedback">Обратная связь</NuxtLink></li>
 				</ul>
 				<div class="header__user-nav header__user-nav--active header__user-nav--mobile">
 					<svg class="header__user-icon">

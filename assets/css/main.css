@@ -1013,6 +1013,7 @@ a {
         margin-bottom: 0;
         padding: 0 12px; } }
   .header__nav-link {
+    cursor: pointer;
     position: relative;
     display: block;
     font-size: 24px;
@@ -1020,6 +1021,7 @@ a {
     @media (min-width: 1024px) {
       .header__nav-link {
         font-size: 18px; } }
+    .header__nav-link.router-link-active::before,
     .header__nav-link--active::before {
       position: absolute;
       bottom: -5px;
@@ -1029,6 +1031,7 @@ a {
       border-radius: 50%;
       background-color: #fff;
       content: ""; }
+    .header__nav-link.router-link-active::after,
     .header__nav-link--active::after {
       position: absolute;
       bottom: -5px;

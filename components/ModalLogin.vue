@@ -114,7 +114,7 @@
 	import { ref } from "vue"
 	import { useStore } from "vuex";
 	const store = useStore();
-	let phoneNumber = ref('');
+	let phoneNumber = ref('79187024219');
 	let code = ref('');
 	let isConsentToDataProcessing = ref(true);
 	function inputNumber ({target})

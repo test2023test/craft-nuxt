@@ -5,7 +5,7 @@
 			<div class="section-hero__container container">
 				<div class="section-hero__text-box">
 					<h1 class="section-hero__title">Вкус<br>путешествия<br>с «Крафт»</h1>
-					<p class="section-hero__text">Покупайте продукцию «Крафт» и получайте призы!<br>Главный приз - путешествие на двоих.</p><a class="button button--orange section-hero__button" href="#">Зарегистрировать код</a>
+					<p class="section-hero__text">Покупайте продукцию «Крафт» и получайте призы!<br>Главный приз - путешествие на двоих.</p><button class="button button--orange section-hero__button" data-modal="code">Зарегистрировать код</button>
 					<p class="section-hero__period">Регистрация кодов с 20 июля по 12 октября 2023 г</p>
 				</div>
 				<div class="section-hero__img-box">
@@ -62,7 +62,7 @@
 						</figcaption>
 					</figure>
 				</div>
-				<div class="section-steps__button-box"><a class="button button--orange button--orange-sm section-steps__button" href="#">Зарегистрировать</a></div>
+				<div class="section-steps__button-box"><button class="button button--orange button--orange-sm section-steps__button"  data-modal="code">Зарегистрировать</button></div>
 			</div>
 			<!-- Section Prizes text-->
 			<section class="section-prizes-text container">

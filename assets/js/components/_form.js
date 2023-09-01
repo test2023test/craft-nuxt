@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const dateInputList = document.querySelectorAll('.form-group__input--date')
 
 	if (dateInputList.length) {
-		console.log(1)
 		dateInputList.forEach((dateInput) => {
 			flatpickr(dateInput, {
 				"locale": Russian,

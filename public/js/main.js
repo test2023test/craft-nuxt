@@ -231,7 +231,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   var dateInputList = document.querySelectorAll('.form-group__input--date');
   if (dateInputList.length) {
-    console.log(1);
     dateInputList.forEach(function (dateInput) {
       Object(flatpickr__WEBPACK_IMPORTED_MODULE_1__["default"])(dateInput, {
         "locale": flatpickr_dist_l10n_ru_js__WEBPACK_IMPORTED_MODULE_2__["Russian"],
@@ -324,7 +323,6 @@ modalLinks.forEach(function (link) {
 function showModal(modalName) {
   var modal = document.querySelector("#".concat(modalName));
   if (!modal) {
-    console.log("Modal #".concat(modalName, " does not exist!"));
     return;
   }
   if (document.querySelector('.modal--shown')) {

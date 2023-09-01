@@ -1,5 +1,5 @@
 <template>
-	<div class="modal modal--feedback" id="feedback">
+	<div class="modal" :class="{'modal--feedback': !isSuccess, 'modal--success': isSuccess}" id="feedback">
 		<div class="modal__body">
 			<div class="modal__content" v-if="isSuccess">
 				<svg class="modal__success-icon">

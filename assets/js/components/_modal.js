@@ -15,7 +15,6 @@ modalLinks.forEach((link) => {
 function showModal(modalName) {
 	const modal = document.querySelector(`#${modalName}`)
 	if (!modal) {
-		console.log(`Modal #${modalName} does not exist!`)
 		return
 	}
 

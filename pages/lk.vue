@@ -119,7 +119,7 @@
 					<div class="data-card">
 						<div class="data-card__title-box">
 							<h2 class="data-card__title">Мои данные</h2>
-							<button class="button button--outline-orange data-card__desktop-btn">Редактировать
+							<button class="button button--outline-orange data-card__desktop-btn" data-modal="user">Редактировать
 								<svg class="button__icon">
 									<use xlink:href="#pencil"></use>
 								</svg>

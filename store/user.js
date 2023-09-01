@@ -33,13 +33,18 @@ export default {
 		async sendPhoneNumber({getters, commit}, phoneNumber)
 		{
 			const correctPhoneNumber = getters.getPhoneNumberInCorrectForm(phoneNumber);
-			let fetchAnswer = await fetch('https://promo-orenbeer.dreamdev.space/send-phone-code/', {mode:"no-cors" ,method:'POST', body: JSON.stringify({"phone": correctPhoneNumber})})
+			let fetchAnswer = await fetch('https://promo-orenbeer.dreamdev.space/send-phone-code/',
+				{
+					method:'POST',
+					body: JSON.stringify({phone: correctPhoneNumber})
+				})
+
 			if(fetchAnswer.success)
 				commit('setLoginStep', 2)
 		},
 		async checkCode({commit, getters}, {phone, code}) 
 		{
-			let fetchAnswer = await fetch('https://promo-orenbeer.dreamdev.space/check-phone-code/', {mode:"no-cors" ,method:"POST", body: JSON.stringify({"phone": phone, "code": code})})
+			let fetchAnswer = await fetch('https://promo-orenbeer.dreamdev.space/check-phone-code/', {method:"POST", body: {"phone": phone, "code": code}})
 			localStorage.setItem("craftToken", fetchAnswer.token)
 			if(fetchAnswer.success)
 				commit('setLoginStep', 3)

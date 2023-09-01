@@ -18,5 +18,7 @@
 		</div>
 		<ModalFeedback />
 		<ModalLogin />
+		<ModalCode />
+		<ModalUser />
 	</footer>
 </template>

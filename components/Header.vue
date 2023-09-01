@@ -26,7 +26,7 @@
 					</div>
 				</div>
 			</nav>
-			<div class="header__user-nav" v-if="!isLogin">
+			<div class="header__user-nav" v-if="!store.state.user.isLogin" data-modal="login">
 				<a class="header__lk-link" href="#">
 					<span class="header__lk-link-text">Личный кабинет</span>
 					<svg class="header__user-icon">
@@ -44,20 +44,14 @@
 				</svg>
 			</div>
 		</div>
-		<ModalFeedback />
 	</header>
 </template>
 <script setup>
-	import {ref} from "vue";
-	import {useStore} from "vuex"
-
-	let isLogin = ref(false);
+	import { ref } from "vue";
+	import { useStore } from "vuex"
 	let store = useStore();
 
-	function exit()
-	{
-		isLogin.value = false 
-	}
+	const exit = ()=>{store.commit('user/exit')};
 </script>
 <style lang="scss">
 </style>

@@ -16,5 +16,7 @@
 				</svg>
 			</NuxtLink>
 		</div>
+		<ModalFeedback />
+		<ModalLogin />
 	</footer>
 </template>

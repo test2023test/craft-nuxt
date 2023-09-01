@@ -13,6 +13,6 @@ export default defineNuxtConfig({
 				body:true
 			},
 		]
-	}
-  }
+	},
+  },
 })

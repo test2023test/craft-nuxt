@@ -11,5 +11,9 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "nuxt": "^3.7.0"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
+    "vuex": "^4.0.2"
   }
 }

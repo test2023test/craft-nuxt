@@ -10,11 +10,11 @@
 				<p class="footer__text">*Будет предоставлен сертификат на приобретение приза. Побрости в Полных правилах акции.</p>
 				<p class="footer__text">Призы могут отличаться по внешнему виду от их изображения на сайте и рекламных материалах.</p>
 			</div>
-			<a class="button button--gray footer__button" href="#">Полные правила акции
+			<NuxtLink class="button button--gray footer__button" to="agreement">Полные правила акции
 				<svg class="button__icon">
 					<use xlink:href="#button-arrow"></use>
 				</svg>
-			</a>
+			</NuxtLink>
 		</div>
 	</footer>
 </template>

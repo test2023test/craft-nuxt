@@ -8,17 +8,21 @@
 						<div class="section-where-buy__button-scroll-container">
 							<div class="dropdown dropdown--where-to-buy section-where-buy__dropdown show-desktop">
 								<div class="dropdown__value-box">
-									<input class="dropdown__value" type="text" placeholder="Выберите свой город" disabled value="Оренбург">
+									<input class="dropdown__value" type="text" placeholder="Выберите свой город" disabled :value="activeCity.name">
 									<svg class="dropdown__arrow">
 										<use xlink:href="#dropdown-arrow"></use>
 									</svg>
 								</div>
 								<ul class="dropdown__options-list">
-									<li class="dropdown__option dropdown__option--selected" data-value="Оренбург">Оренбург</li>
-									<li class="dropdown__option" data-value="Москва">Москва</li>
-									<li class="dropdown__option" data-value="Санкт-Петербург">Санкт-Петербург</li>
-									<li class="dropdown__option" data-value="Казань">Казань</li>
-									<li class="dropdown__option" data-value="Новосибирск">Новосибирск</li>
+									<li
+										class="dropdown__option" 
+										v-for="city of cities"
+										:data-value="city.name"
+										@click="activeCity = city"
+									>
+									{{city.name}}
+									</li>
+
 								</ul>
 							</div>
 							<!-- Button-->
@@ -225,5 +229,22 @@
 	</main>
 </template>
 <script setup>
-	
+	import {ref, onMounted} from 'vue';
+	const runtimeConfig = useRuntimeConfig();
+	let cities = ref([]),
+		activeCity= ref({});
+
+
+
+	onMounted(()=>{
+		getCities();
+	});
+
+
+	function getCities(){
+		fetch( runtimeConfig.public.API_BASE_URL + '/cities/').then(async (response)=>{
+			let dataJson = await response.json();
+			cities.value = dataJson.cities;
+		})
+	}
 </script>

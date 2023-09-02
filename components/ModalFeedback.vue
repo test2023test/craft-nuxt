@@ -3,7 +3,7 @@
 		class="modal"
 		id="feedback"
 		ref="modal"
-		>
+	>
 		<div class="modal__body" :class="{'modal--feedback': !isSuccess, 'modal--success': isSuccess}">
 			<div class="modal__content" v-show="isSuccess">
 				<svg class="modal__success-icon">
@@ -128,7 +128,10 @@
 			}
 		});
 
-	getTopics();
+	onMounted(()=>{
+		getTopics();
+	});
+
 	function submit()
 	{
 		if(validateData()){

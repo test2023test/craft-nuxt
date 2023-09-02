@@ -549,6 +549,14 @@
 	</main>
 </template>
 <script setup>
+import { useStore } from "vuex"
+definePageMeta({
+  middleware: (to)=>{
+  	console.log(!useStore().state.user.isLogin);
+  	if(!useStore().state.user.isLogin)
+  		return navigateTo('/')
+  }
+})
 </script>
 <style lang="scss">
 </style>

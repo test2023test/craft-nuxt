@@ -3,7 +3,7 @@
 		<div class="modal modal--login" id="login">
 			<div class="modal__body">
 				<div class="modal__content modal__content--image-left"
-					v-if="store.state.user.login.step === 1">
+					v-show="store.state.user.login.step === 1">
 					<div class="modal__img-box">
 						<picture>
 							<source srcset="images/modal-img1@1x.webp, images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="images/modal-img1@1x.jpg" srcset="images/modal-img1@2x.jpg 2x" alt=""/>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="modal__content modal__content--image-left"
-					v-if="store.state.user.login.step === 2">
+					v-show="store.state.user.login.step === 2">
 					<div class="modal__img-box">
 						<picture>
 							<source srcset="images/modal-img1@1x.webp, images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="images/modal-img1@1x.jpg" srcset="images/modal-img1@2x.jpg 2x" alt=""/>
@@ -82,7 +82,7 @@
 					</div>
 				</div>
 				<div class="modal__content modal__content--image-left"
-					v-if="store.state.user.login.step === 3">
+					v-show="store.state.user.login.step === 3">
 					<div class="modal__img-box">
 						<picture>
 							<source srcset="images/modal-img1@1x.webp, images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="images/modal-img1@1x.jpg" srcset="images/modal-img1@2x.jpg 2x" alt=""/>
@@ -103,7 +103,10 @@
 							</svg>
 							<p class="modal__success-text">Ваш номер телефона подтверждён!</p>
 						</div>
-						<button class="button button--orange button--orange-md modal__btn js-modal-close" @click="login">Войти</button>
+						<button
+							class="button button--orange button--orange-md js-modal-close"
+							@click="login">Войти
+						</button>
 					</div>
 				</div>
 			</div>

@@ -57,7 +57,6 @@
 	const exit = ()=>{store.dispatch('user/logOutOfTheSystem')};
 
 	const firstName = computed(() => {
-		console.log(store.state.user.data.firstName);
 		return store.state.user.data.firstName === '' ? 'Имя' : store.state.user.data.firstName
 	})
 	const lastName = computed(() => {

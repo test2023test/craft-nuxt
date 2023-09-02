@@ -65,22 +65,33 @@ export default {
 		},
 		async loginInToSystem({getters, commit})
 		{
-			fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('userToken'))
-			.then(async (response)=>
+			let cashUserData = JSON.parse(localStorage.getItem('userDate'));
+			if(!cashUserData)
 			{
-				let userData = await response.json();
-				if(userData.success)
+				fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('userToken'))
+				.then(async (response)=>
 				{
-					commit('setUserData', userData.user)
-					commit('setIsLogin', true)
-					return true;
-				}
-			})
+					let userData = await response.json();
+					if(userData.success)
+					{
+						commit('setUserData', userData.user)
+						commit('setIsLogin', true)
+						localStorage.setItem('userDate', JSON.stringify(userData.user))
+						return true;
+					}
+				})
+			}
+			else
+			{
+				commit('setUserData', cashUserData)
+				commit('setIsLogin', true)
+			}
 		},
 		logOutOfTheSystem({commit})
 		{
 			commit('exit');
 			localStorage.removeItem('userToken');
+			localStorage.removeItem('userDate');
 		}
 	},
 	getters:

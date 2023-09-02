@@ -103,7 +103,7 @@
 							</svg>
 							<p class="modal__success-text">Ваш номер телефона подтверждён!</p>
 						</div>
-						<button class="button button--orange button--orange-md modal__btn">Войти</button>
+						<button class="button button--orange button--orange-md modal__btn js-modal-close" @click="login">Войти</button>
 					</div>
 				</div>
 			</div>
@@ -128,6 +128,10 @@
 	function checkCode()
 	{
 		store.dispatch('user/checkCode', {phone: phoneNumber.value, code: code.value})	
+	}
+	async function login()
+	{
+		await store.dispatch('user/loginInToSystem');
 	}
 </script>
 <style lang="scss">

@@ -6,7 +6,6 @@ export default defineNuxtConfig({
 		script:[
 			{
 				src: "/js/main.js",
-				body:true
 			},
 			{
 				src: "/js/vendor.js",

@@ -1,22 +1,15 @@
+
 export default {
 	namespaced: true,
 	state () {
 		return {
-			isLogin: false,
+			isLogin: true,
 			login:
 			{
-				isLogin: false,
 				step: 1,
 			},
 			data:{
-				firstName: "Светлана",
-				lastName: "Голубева",
-				sex: "women",
-				dateOfBirth: "1986-03-18",
-				isConfirmedPhone: true,
-				email: "msd@gmail.com",
-				isConfirmedEmail: false,
-				gotEmailBonus: false
+				
 			}
 		}
 	},
@@ -27,7 +20,15 @@ export default {
 		setLoginStep({login},newValue)
 		{
 			login.step = newValue
-		}
+		},
+		setUserData(state, newData)
+		{
+			state.data = newData;
+		},
+		setIsLogin(state, newValue)
+		{
+			state.isLogin = newValue;
+		},
 	},
 	actions: {
 		async sendPhoneNumber({getters, commit}, phoneNumber)
@@ -60,16 +61,32 @@ export default {
 				})
 			
 			let fetchAnswer = await response.json();
-			console.log(fetchAnswer);
+
 			localStorage.setItem("craftToken", fetchAnswer.token)
 			if(fetchAnswer.success)
 				commit('setLoginStep', 3)
+		},
+		async loginInToSystem({getters, commit})
+		{
+			fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('craftToken'))
+			.then(async (response)=>
+			{
+				let userData = await response.json();
+				console.log(userData);
+				if(userData.success)
+				{
+					commit('setUserData', userData.user)
+					commit('setIsLogin', true)
+					return true;
+				}
+			})
 		}
 	},
 	getters:
 	{
 		getPhoneNumberInCorrectForm:()=> (phoneNumber) => {
 			return phoneNumber.replace(/[^+\d]/g, '').replace('+', '');
-		}
+		},
+		apiUrl: () => useRuntimeConfig().public.API_BASE_URL
 	}
 };	

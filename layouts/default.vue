@@ -6,7 +6,20 @@
   	<Sprite></Sprite>
   </div>
 </template>
-<script >
+<script>
+	export default {
+		mounted()
+		{
+			if(!this.isOldUser())
+				navigateTo('/login')
+		},
+		methods:{
+			isOldUser()
+			{
+				return localStorage.getItem('isOldUser');
+			}
+		}
+	}
 </script>
 <style lang="scss">
 </style>

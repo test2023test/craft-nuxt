@@ -32,7 +32,7 @@ export default {
 		{
 			const correctPhoneNumber = getters.getPhoneNumberInCorrectForm(phoneNumber);
 			
-			let fetchAnswer = await fetch('https://promo-orenbeer.dreamdev.space/send-phone-code/',
+			let fetchAnswer = await fetch(getters.apiUrl + '/send-phone-code/',
 				{
 					method:'POST',
 					headers: {
@@ -44,7 +44,7 @@ export default {
 		},
 		async checkCode({commit, getters}, {phone, code}) 
 		{
-			let response = await fetch('https://promo-orenbeer.dreamdev.space/check-phone-code/', 
+			let response = await fetch(getters.apiUrl + '/check-phone-code/', 
 				{
 					method:"POST",
 					headers: {
@@ -65,33 +65,34 @@ export default {
 		},
 		async loginInToSystem({getters, commit})
 		{
-			let cashUserData = JSON.parse(localStorage.getItem('userDate'));
-			if(!cashUserData)
+			console.log('loginInToSystem');
+			fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('userToken'))
+			.then(async (response)=>
 			{
-				fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('userToken'))
-				.then(async (response)=>
+				let userData = await response.json();
+				if(userData.success)
 				{
-					let userData = await response.json();
-					if(userData.success)
-					{
-						commit('setUserData', userData.user)
-						commit('setIsLogin', true)
-						localStorage.setItem('userDate', JSON.stringify(userData.user))
-						return true;
-					}
-				})
-			}
-			else
-			{
-				commit('setUserData', cashUserData)
-				commit('setIsLogin', true)
-			}
+					commit('setUserData', userData.user)
+					commit('setIsLogin', true)
+					localStorage.setItem('userDate', JSON.stringify(userData.user))
+					return true;
+				}
+			})
 		},
 		logOutOfTheSystem({commit})
 		{
 			commit('exit');
 			localStorage.removeItem('userToken');
 			localStorage.removeItem('userDate');
+		},
+		async updateUserData({commit, getters}, dataToSend)
+		{
+			await fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('userToken'), {
+				method:"POST",
+				headers: {'Content-Type': 'application/json;charset=utf-8'},
+				body: JSON.stringify(dataToSend)
+			})
+			
 		}
 	},
 	getters:

@@ -142,7 +142,8 @@
 						<p class="data-card__contacts">
 							<svg class="data-card__contacts-icon">
 								<use xlink:href="#envelope"></use>
-							</svg>{{store.state.user.email}}
+							</svg>
+							{{store.state.user.data.email}}
 						</p>
 						<div class="data-card__info-box">
 							<p class="data-card__info-text-big">
@@ -554,10 +555,6 @@
 import { ref, computed, onMounted } from "vue"
 import { useStore } from "vuex";
 const store = useStore();
-	onMounted( ()=>{
-		if(!useStore().state.user.isLogin)
-			navigateTo('/')}
-	)
 	const firstName = computed(() => {
 		return store.state.user.data.firstName === '' ? 'Имя' : store.state.user.data.firstName
 	})
@@ -565,8 +562,13 @@ const store = useStore();
 		return store.state.user.data.lastName === '' ? 'Фамилия' : store.state.user.data.lastName
 	})
 	const phone = computed(() => {
-		let numberArr = store.state.user.data.phone.split('');
-		return `+${numberArr[0]} ${numberArr[1]}${numberArr[2]}${numberArr[3]} ${numberArr[4]}${numberArr[5]}${numberArr[6]} ${numberArr[7]}${numberArr[8]} ${numberArr[9]}${numberArr[10]}`
+		if(store.state.user.data.phone)
+		{
+			let numberArr = store.state.user.data.phone.split('');
+			return `+${numberArr[0]} ${numberArr[1]}${numberArr[2]}${numberArr[3]} ${numberArr[4]}${numberArr[5]}${numberArr[6]} ${numberArr[7]}${numberArr[8]} ${numberArr[9]}${numberArr[10]}`
+		}
+		else
+			return '-';
 	})
 </script>
 <style lang="scss">

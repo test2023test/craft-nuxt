@@ -11,7 +11,10 @@
 				</svg>
 				<h2 class="modal__title">Ваше сообщение успешно отправлено!</h2>
 				<p class="modal__subtitle">Наши менеджеры свяжутся с вами в ближайшее время</p>
-				<button class="button button--orange button--orange-md modal__btn js-modal-close">Отлично!</button>
+				<button
+					class="button button--orange button--orange-md modal__btn js-modal-close" 
+					@click="reset"
+				>Отлично!</button>
 			</div>
 			<div class="modal__content" v-show="!isSuccess">
 				<div class="modal__content-box">
@@ -66,8 +69,8 @@
 							</div>
 							<div class="form-group" :class="{'form-group--error': data.phone.isEmpty}">
 								<label class="form-group__label">Номер телефона</label>
-								<input class="form-group__input" type="tel" name="phone" value="+7"
-								@input="(event)=>{data.phone.value = event.target.value}">
+								<input ref="telTarget" class="form-group__input" type="tel" name="phone" value="+7"
+								@input="(event)=>{data.phone.value = event.target.value}" >
 								<span class="form-group__error-text" data-v-inspector="components/ModalUser.vue:20:97">Поле не должно быть пустым.</span>
 							</div>
 							<div class="form-group" :class="{'form-group--error': data.message.isEmpty}">
@@ -94,6 +97,7 @@
 	import { ref } from "vue";
 	const runtimeConfig = useRuntimeConfig();
 	let isSuccess = ref(false),
+		telTarget = ref(null),
 		topicsList = ref([]),
 		data = ref({
 			selectTopic: {
@@ -123,11 +127,12 @@
 				isEmpty: false
 			}
 		});
+
 	getTopics();
 	function submit()
 	{
 		if(validateData()){
-			fetch('https://promo-orenbeer.dreamdev.space/feedback/',
+			fetch(runtimeConfig.public.API_BASE_URL +'/feedback/',
 			{
 				method:'POST',
 				headers: {
@@ -160,11 +165,47 @@
 		return Object.values(data.value).reduce((accum, item)=> accum && !item.isEmpty, true)
 	}
 	function getTopics() {
-		fetch(runtimeConfig.public.API_BASE_URL + 'feedback-topics/').then( async (data)=>{
+		fetch( runtimeConfig.public.API_BASE_URL + '/feedback-topics/').then( async (data)=>{
 			let dataJson = await data.json();
 			topicsList.value = dataJson.topics;
 		})
 	}
+	function reset()
+	{
+		setTimeout( ()=>{
+			isSuccess.value = false;
+			data.value = {
+				selectTopic: {
+					id: '',
+					title: '' ,
+					isEmpty: false
+				},
+				email: {
+					value: '',
+					isEmpty: false
+				},
+				name: {
+					value: '',
+					isEmpty: false
+				},
+				phone: {
+					value: '',
+					isEmpty: false
+				},
+				message: {
+					value: '',
+					isEmpty: false
+				},
+				isConsent:
+				{
+					value: false,
+					isEmpty: false
+				}
+			}
+			telTarget.value.value = "+7"
+		}, 1000)
+	}
+	
 </script>
 <style lang="scss">
 </style>

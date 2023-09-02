@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 				body:true
 			},
 			{
-				src: "https://api-maps.yandex.ru/2.1/?apikey=53f8fad6-a29a-4bf6-81e9-8d6aad62eed3&lang=en_US",
+				src: `https://api-maps.yandex.ru/2.1/?apikey=${process.env.MAP_API_KEY}&lang=en_US`,
 			},
 			{
 				src: "/js/YaMap.js",
@@ -24,7 +24,8 @@ export default defineNuxtConfig({
   },
   	runtimeConfig: {
 	  	public: {
-			API_BASE_URL: process.env.API_BASE_URL
+			API_BASE_URL: process.env.API_BASE_URL,
+			MAP_API_KEY: process.env.MAP_API_KEY
 		},
 	}
 })

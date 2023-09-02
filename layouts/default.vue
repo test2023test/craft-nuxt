@@ -11,12 +11,18 @@
 		mounted()
 		{
 			if(!this.isOldUser())
-				navigateTo('/login')
+				navigateTo('/login');
+			if(localStorage.getItem('userToken'))
+				this.login();
 		},
 		methods:{
 			isOldUser()
 			{
 				return localStorage.getItem('isOldUser');
+			},
+			async login()
+			{
+				await this.$store.dispatch('user/loginInToSystem');
 			}
 		}
 	}

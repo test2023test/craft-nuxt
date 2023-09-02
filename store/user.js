@@ -3,14 +3,11 @@ export default {
 	namespaced: true,
 	state () {
 		return {
-			isLogin: true,
-			login:
-			{
+			isLogin: false,
+			login: {
 				step: 1,
 			},
-			data:{
-				
-			}
+			data:{}
 		}
 	},
 	mutations: {
@@ -62,17 +59,16 @@ export default {
 			
 			let fetchAnswer = await response.json();
 
-			localStorage.setItem("craftToken", fetchAnswer.token)
+			localStorage.setItem("userToken", fetchAnswer.token)
 			if(fetchAnswer.success)
 				commit('setLoginStep', 3)
 		},
 		async loginInToSystem({getters, commit})
 		{
-			fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('craftToken'))
+			fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('userToken'))
 			.then(async (response)=>
 			{
 				let userData = await response.json();
-				console.log(userData);
 				if(userData.success)
 				{
 					commit('setUserData', userData.user)
@@ -80,6 +76,11 @@ export default {
 					return true;
 				}
 			})
+		},
+		logOutOfTheSystem({commit})
+		{
+			commit('exit');
+			localStorage.removeItem('userToken');
 		}
 	},
 	getters:

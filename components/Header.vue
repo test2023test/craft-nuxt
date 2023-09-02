@@ -34,24 +34,36 @@
 					</svg>
 				</a>
 				</div>
-			<div class="header__user-nav header__user-nav--active" v-else>
+			<NuxtLink to="/lk" class="header__user-nav header__user-nav--active" v-else>
 				<div class="header__user-nav-box">
-					<p class="header__user-name">Светлана Голубева</p>
-					<button class="header__user-logout" @click="exit">Выйти</button>
+					<p class="header__user-name">
+						{{firstName}}
+						{{lastName}}
+					</p>
+					<button class="header__user-logout" @click.stop="exit">Выйти</button>
 				</div>
 				<svg class="header__user-icon">
 					<use xlink:href="#user-icon"></use>
 				</svg>
-			</div>
+			</NuxtLink>
 		</div>
+
 	</header>
 </template>
 <script setup>
-	import { ref } from "vue";
+	import { ref, computed } from "vue"
 	import { useStore } from "vuex"
 	let store = useStore();
+	const exit = ()=>{store.dispatch('user/logOutOfTheSystem')};
 
-	const exit = ()=>{store.commit('user/exit')};
+	const firstName = computed(() => {
+		console.log(store.state.user.data.firstName);
+		return store.state.user.data.firstName === '' ? 'Имя' : store.state.user.data.firstName
+	})
+	const lastName = computed(() => {
+		return store.state.user.data.lastName === '' ? 'Фамилия' : store.state.user.data.lastName
+	})
+	
 </script>
 <style lang="scss">
 </style>

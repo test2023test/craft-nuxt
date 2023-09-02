@@ -18,21 +18,20 @@
 										class="dropdown__option" 
 										v-for="city of cities"
 										:data-value="city.name"
-										@click="activeCity = city"
+										@click="selectActiveCity(city)"
 									>
 									{{city.name}}
 									</li>
-
 								</ul>
 							</div>
 							<!-- Button-->
-							<div class="section-where-buy__button">
+							<div class="section-where-buy__button" v-for="point of pointsList">
 								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
+									<p class="section-where-buy__button-text">{{point.name}}</p>
 									<address class="section-where-buy__button-addr">
 										<svg class="section-where-buy__button-addr-icon">
 											<use xlink:href="#map-marker"></use>
-										</svg> Пролетарская ул., 288/2
+										</svg> {{point.address}}
 									</address>
 								</div>
 								<svg class="section-where-buy__button-icon">
@@ -58,146 +57,8 @@
 									</svg>
 								</div>
 							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. 60 лет Октября, 9
-									</address>
-								</div>
-								<svg class="section-where-buy__button-icon">
-									<use xlink:href="#chevron-right"></use>
-								</svg>
-							</div>
+
+							
 						</div>
 					</div>
 					<div class="section-where-buy__map-col">
@@ -232,19 +93,34 @@
 	import {ref, onMounted} from 'vue';
 	const runtimeConfig = useRuntimeConfig();
 	let cities = ref([]),
-		activeCity= ref({});
+		activeCity = ref({}),
+		pointsList = ref([]);
+
 
 
 
 	onMounted(()=>{
-		getCities();
+		fetchCities();
 	});
 
-
-	function getCities(){
+	function selectActiveCity(newCity){
+		activeCity.value = newCity;
+		fetchPoints();
+	}
+	function fetchPoints(){
+		fetch( runtimeConfig.public.API_BASE_URL + `/sale-points/${activeCity.value.id}/`)
+			.then(async (response)=>{
+				let dataJson = await response.json();
+				pointsList.value = dataJson['sales-points'];
+			})
+	}
+	function fetchCities(){
 		fetch( runtimeConfig.public.API_BASE_URL + '/cities/').then(async (response)=>{
 			let dataJson = await response.json();
 			cities.value = dataJson.cities;
 		})
 	}
 </script>
+<style >
+	.section-where-buy__button-scroll-container{height: 100%;}
+</style>

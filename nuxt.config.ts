@@ -12,6 +12,13 @@ export default defineNuxtConfig({
 				src: "/js/vendor.js",
 				body:true
 			},
+			{
+				src: "https://api-maps.yandex.ru/2.1/?apikey=53f8fad6-a29a-4bf6-81e9-8d6aad62eed3&lang=en_US",
+			},
+			{
+				src: "/js/YaMap.js",
+				body:true
+			},
 		]
 	},
   },

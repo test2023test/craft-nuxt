@@ -52,7 +52,11 @@ export default {
 					headers: {
 						'Content-Type': 'application/json;charset=utf-8'
 					},
-					body: JSON.stringify({"phone": phone, "code": code})
+					body: JSON.stringify(
+						{
+							"phone": getters.getPhoneNumberInCorrectForm(phone),
+							"code": code}
+					)
 				})
 			
 			let fetchAnswer = await response.json();

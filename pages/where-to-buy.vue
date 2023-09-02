@@ -25,7 +25,12 @@
 								</ul>
 							</div>
 							<!-- Button-->
-							<div class="section-where-buy__button" v-for="point of pointsList">
+							<div
+								class="section-where-buy__button section-where-buy__button--block"
+								:class="{'section-where-buy__button--orange': activePoint.id === point.id}"
+								v-for="point of pointsList"
+								@click="setActivePoint(point)"
+							>
 								<div class="section-where-buy__button-text-box">
 									<p class="section-where-buy__button-text">{{point.name}}</p>
 									<address class="section-where-buy__button-addr">
@@ -38,51 +43,31 @@
 									<use xlink:href="#chevron-right"></use>
 								</svg>
 							</div>
-							<!-- Button-->
-							<div class="section-where-buy__button section-where-buy__button--orange">
-								<div class="section-where-buy__button-text-box">
-									<p class="section-where-buy__button-text">Магазин «Крафт»</p>
-									<address class="section-where-buy__button-addr">
-										<svg class="section-where-buy__button-addr-icon">
-											<use xlink:href="#map-marker"></use>
-										</svg> ул. Монтажников, 2
-									</address>
-								</div>
-								<div class="section-where-buy__button-icon-box">
-									<svg class="section-where-buy__button-icon">
-										<use xlink:href="#yandex"></use>
-									</svg>
-									<svg class="section-where-buy__button-icon">
-										<use xlink:href="#google"></use>
-									</svg>
-								</div>
-							</div>
-
 							
 						</div>
 					</div>
 					<div class="section-where-buy__map-col">
 						<div class="dropdown dropdown--where-to-buy section-where-buy__dropdown hide-desktop">
 							<div class="dropdown__value-box">
-								<input class="dropdown__value" type="text" placeholder="Выберите свой город" disabled value="Оренбург">
-								<svg class="dropdown__arrow">
-									<use xlink:href="#dropdown-arrow"></use>
-								</svg>
+									<input class="dropdown__value" type="text" placeholder="Выберите свой город" disabled :value="activeCity.name">
+									<svg class="dropdown__arrow">
+										<use xlink:href="#dropdown-arrow"></use>
+									</svg>
 							</div>
 							<ul class="dropdown__options-list">
-								<li class="dropdown__option dropdown__option--selected" data-value="Оренбург">Оренбург</li>
-								<li class="dropdown__option" data-value="Москва">Москва</li>
-								<li class="dropdown__option" data-value="Санкт-Петербург">Санкт-Петербург</li>
-								<li class="dropdown__option" data-value="Казань">Казань</li>
-								<li class="dropdown__option" data-value="Новосибирск">Новосибирск</li>
+								<li
+									class="dropdown__option" 
+									v-for="city of cities"
+									:data-value="city.name"
+									@click="selectActiveCity(city)"
+								>
+								{{city.name}}
+								</li>
 							</ul>
 						</div>
-						<picture>
-							<source srcset="images/map@1x.webp, images/map@2x.webp 2x" type="image/webp"/><img class="section-where-buy__map show-desktop" src="images/map@1x.jpg" srcset="images/map@2x.jpg 2x" alt=""/>
-						</picture>
-						<picture>
-							<source srcset="images/map-mobile@1x.webp, images/map-mobile@2x.webp 2x" type="image/webp"/><img class="section-where-buy__map hide-desktop" src="images/map-mobile@1x.jpg" srcset="images/map-mobile@2x.jpg 2x" alt=""/>
-						</picture>
+						<ClientOnly>
+							<YaMap class="section-where-buy__map" :point="activePoint" ref="yamap" />
+						</ClientOnly>
 					</div>
 				</div>
 			</div>
@@ -94,21 +79,26 @@
 	const runtimeConfig = useRuntimeConfig();
 	let cities = ref([]),
 		activeCity = ref({}),
-		pointsList = ref([]);
-
-
+		activePoint = ref({}),
+		pointsList = ref([]),
+		yamap = ref(null);
 
 
 	onMounted(()=>{
 		fetchCities();
 	});
-
-	function selectActiveCity(newCity){
-		activeCity.value = newCity;
-		fetchPoints();
+	function setActivePoint(newPoint)
+	{
+		activePoint.value = newPoint;
+		setTimeout(()=>{yamap.value.init()},100)
 	}
-	function fetchPoints(){
-		fetch( runtimeConfig.public.API_BASE_URL + `/sale-points/${activeCity.value.id}/`)
+	async function selectActiveCity(newCity){
+		activeCity.value = newCity;
+		await fetchPoints();
+		setActivePoint(pointsList.value[0]);
+	}
+	async function fetchPoints(){
+		await fetch( runtimeConfig.public.API_BASE_URL + `/sale-points/${activeCity.value.id}/`)
 			.then(async (response)=>{
 				let dataJson = await response.json();
 				pointsList.value = dataJson['sales-points'];
@@ -122,5 +112,9 @@
 	}
 </script>
 <style >
-	.section-where-buy__button-scroll-container{height: 100%;}
+	.section-where-buy__map{width: 100%;}
+	@media(min-width: 1024px)
+	{
+		.section-where-buy__button-scroll-container{min-height: 100%;}
+	}
 </style>

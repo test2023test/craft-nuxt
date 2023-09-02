@@ -1291,7 +1291,7 @@ a {
       .modal--code .modal__body {
         max-width: 1000px; } }
     @media (min-width: 1024px) {
-      .modal--success .modal__body {
+      .modal--success.modal__body {
         max-width: 1000px;
         height: 100vh;
         max-height: 668px; } }
@@ -1305,7 +1305,7 @@ a {
       .modal--user .modal__body {
         max-width: 654px; } }
     @media (min-width: 1024px) {
-      .modal--feedback .modal__body {
+      .modal--feedback.modal__body {
         max-width: 563px; } }
     @media (min-width: 1024px) {
       .modal--sticker .modal__body {

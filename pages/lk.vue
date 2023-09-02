@@ -130,17 +130,19 @@
 								</svg>
 							</button>
 						</div>
-						<p class="data-card__name">Светлана Голубева</p>
-						<p class="data-card__birthday">Дата рождения: 18 марта 1986</p>
+						<p class="data-card__name">{{firstName}} {{lastName}}</p>
+						<p class="data-card__birthday">
+							Дата рождения: {{store.state.user.data.dateOfBirth}}
+						</p>
 						<p class="data-card__contacts">
 							<svg class="data-card__contacts-icon">
 								<use xlink:href="#phone"></use>
-							</svg>+7 914 555 39 59
+							</svg>{{phone}}
 						</p>
 						<p class="data-card__contacts">
 							<svg class="data-card__contacts-icon">
 								<use xlink:href="#envelope"></use>
-							</svg>golubeva@gmail.com
+							</svg>{{store.state.user.email}}
 						</p>
 						<div class="data-card__info-box">
 							<p class="data-card__info-text-big">
@@ -549,14 +551,23 @@
 	</main>
 </template>
 <script setup>
-import { useStore } from "vuex"
-definePageMeta({
-  middleware: (to)=>{
-  	console.log(!useStore().state.user.isLogin);
-  	if(!useStore().state.user.isLogin)
-  		return navigateTo('/')
-  }
-})
+import { ref, computed, onMounted } from "vue"
+import { useStore } from "vuex";
+const store = useStore();
+	onMounted( ()=>{
+		if(!useStore().state.user.isLogin)
+			navigateTo('/')}
+	)
+	const firstName = computed(() => {
+		return store.state.user.data.firstName === '' ? 'Имя' : store.state.user.data.firstName
+	})
+	const lastName = computed(() => {
+		return store.state.user.data.lastName === '' ? 'Фамилия' : store.state.user.data.lastName
+	})
+	const phone = computed(() => {
+		let numberArr = store.state.user.data.phone.split('');
+		return `+${numberArr[0]} ${numberArr[1]}${numberArr[2]}${numberArr[3]} ${numberArr[4]}${numberArr[5]}${numberArr[6]} ${numberArr[7]}${numberArr[8]} ${numberArr[9]}${numberArr[10]}`
+	})
 </script>
 <style lang="scss">
 </style>

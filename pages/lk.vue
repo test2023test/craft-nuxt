@@ -190,7 +190,7 @@
 						<!-- Sticker-->
 						<figure class="sticker" data-modal="sticker">
 							<picture>
-								<source srcset="images/sticker1@1x.webp, images/sticker1@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker1@1x.jpg" srcset="images/sticker1@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker1@1x.webp, /images/sticker1@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker1@1x.jpg" srcset="/images/sticker1@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">ХопГан</p><span class="sticker__counter">1</span>
@@ -199,7 +199,7 @@
 						<!-- Sticker-->
 						<figure class="sticker sticker--disabled">
 							<picture>
-								<source srcset="images/sticker2@1x.webp, images/sticker2@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker2@1x.jpg" srcset="images/sticker2@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker2@1x.webp, /images/sticker2@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker2@1x.jpg" srcset="/images/sticker2@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Сургуч</p>
@@ -208,7 +208,7 @@
 						<!-- Sticker-->
 						<figure class="sticker sticker--disabled">
 							<picture>
-								<source srcset="images/sticker3@1x.webp, images/sticker3@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker3@1x.jpg" srcset="images/sticker3@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker3@1x.webp, /images/sticker3@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker3@1x.jpg" srcset="/images/sticker3@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Дрожжи</p>
@@ -217,7 +217,7 @@
 						<!-- Sticker-->
 						<figure class="sticker sticker--disabled">
 							<picture>
-								<source srcset="images/sticker4@1x.webp, images/sticker4@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker4@1x.jpg" srcset="images/sticker4@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker4@1x.webp, /images/sticker4@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker4@1x.jpg" srcset="/images/sticker4@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Цилиндро-конический танк</p>
@@ -245,7 +245,7 @@
 						<!-- Sticker-->
 						<figure class="sticker" data-modal="sticker">
 							<picture>
-								<source srcset="images/sticker5@1x.webp, images/sticker5@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker5@1x.jpg" srcset="images/sticker5@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker5@1x.webp, /images/sticker5@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker5@1x.jpg" srcset="/images/sticker5@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Варочный чан</p>
@@ -254,7 +254,7 @@
 						<!-- Sticker-->
 						<figure class="sticker" data-modal="sticker">
 							<picture>
-								<source srcset="images/sticker6@1x.webp, images/sticker6@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker6@1x.jpg" srcset="images/sticker6@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker6@1x.webp, /images/sticker6@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker6@1x.jpg" srcset="/images/sticker6@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Солод</p>
@@ -263,7 +263,7 @@
 						<!-- Sticker-->
 						<figure class="sticker" data-modal="sticker">
 							<picture>
-								<source srcset="images/sticker7@1x.webp, images/sticker7@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker7@1x.jpg" srcset="images/sticker7@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker7@1x.webp, /images/sticker7@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker7@1x.jpg" srcset="/images/sticker7@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Хмель</p>
@@ -272,7 +272,7 @@
 						<!-- Sticker-->
 						<figure class="sticker sticker--disabled">
 							<picture>
-								<source srcset="images/sticker8@1x.webp, images/sticker8@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker8@1x.jpg" srcset="images/sticker8@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker8@1x.webp, /images/sticker8@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker8@1x.jpg" srcset="/images/sticker8@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Заторный чан</p><span class="sticker__counter">3</span>
@@ -304,7 +304,7 @@
 						<!-- Sticker-->
 						<figure class="sticker sticker--disabled">
 							<picture>
-								<source srcset="images/sticker9@1x.webp, images/sticker9@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker9@1x.jpg" srcset="images/sticker9@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker9@1x.webp, /images/sticker9@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker9@1x.jpg" srcset="/images/sticker9@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Линия розлива</p>
@@ -313,7 +313,7 @@
 						<!-- Sticker-->
 						<figure class="sticker" data-modal="sticker">
 							<picture>
-								<source srcset="images/sticker10@1x.webp, images/sticker10@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker10@1x.jpg" srcset="images/sticker10@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker10@1x.webp, /images/sticker10@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker10@1x.jpg" srcset="/images/sticker10@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Этикетировщик</p><span class="sticker__counter">2</span>
@@ -322,7 +322,7 @@
 						<!-- Sticker-->
 						<figure class="sticker sticker--disabled">
 							<picture>
-								<source srcset="images/sticker11@1x.webp, images/sticker11@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker11@1x.jpg" srcset="images/sticker11@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker11@1x.webp, /images/sticker11@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker11@1x.jpg" srcset="/images/sticker11@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Паллеты</p>
@@ -331,7 +331,7 @@
 						<!-- Sticker-->
 						<figure class="sticker" data-modal="sticker">
 							<picture>
-								<source srcset="images/sticker12@1x.webp, images/sticker12@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker12@1x.jpg" srcset="images/sticker12@2x.jpg 2x" alt=""/>
+								<source srcset="/images/sticker12@1x.webp, /images/sticker12@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker12@1x.jpg" srcset="/images/sticker12@2x.jpg 2x" alt=""/>
 							</picture>
 							<figcaption>
 								<p class="sticker__text">Кар</p>
@@ -361,7 +361,7 @@
 							<figure class="instant-card instant-card--bg1" data-modal="sticker">
 								<div class="instant-card__img-box">
 									<picture>
-										<source srcset="images/instant-card-img1@1x.webp, images/instant-card-img1@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img1@1x.png" srcset="images/instant-card-img1@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img1@1x.webp, /images/instant-card-img1@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="/images/instant-card-img1@1x.png" srcset="/images/instant-card-img1@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">Майка<span class="instant-card__counter">3</span></figcaption>
@@ -372,7 +372,7 @@
 							<figure class="instant-card instant-card--disabled instant-card--bg1">
 								<div class="instant-card__img-box">
 									<picture>
-										<source srcset="images/instant-card-img2@1x.webp, images/instant-card-img2@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img2@1x.png" srcset="images/instant-card-img2@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img2@1x.webp, /images/instant-card-img2@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="/images/instant-card-img2@1x.png" srcset="/images/instant-card-img2@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">Худи</figcaption>
@@ -383,7 +383,7 @@
 							<figure class="instant-card instant-card--bg2" data-modal="sticker">
 								<div class="instant-card__img-box">
 									<picture>
-										<source srcset="images/instant-card-img3@1x.webp, images/instant-card-img3@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img3@1x.png" srcset="images/instant-card-img3@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img3@1x.webp, /images/instant-card-img3@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="/images/instant-card-img3@1x.png" srcset="/images/instant-card-img3@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">Открывашка</figcaption>
@@ -394,7 +394,7 @@
 							<figure class="instant-card instant-card--disabled instant-card--bg3">
 								<div class="instant-card__img-box">
 									<picture>
-										<source srcset="images/instant-card-img4@1x.webp, images/instant-card-img4@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img4@1x.png" srcset="images/instant-card-img4@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img4@1x.webp, /images/instant-card-img4@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="/images/instant-card-img4@1x.png" srcset="/images/instant-card-img4@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">Бутылка крафтового<br>пива</figcaption>
@@ -405,7 +405,7 @@
 							<figure class="instant-card instant-card--bg4" data-modal="sticker">
 								<div class="instant-card__img-box">
 									<picture>
-										<source srcset="images/instant-card-img5@1x.webp, images/instant-card-img5@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img5@1x.png" srcset="images/instant-card-img5@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img5@1x.webp, /images/instant-card-img5@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="/images/instant-card-img5@1x.png" srcset="/images/instant-card-img5@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">Шопер</figcaption>
@@ -416,7 +416,7 @@
 							<figure class="instant-card instant-card--bg5" data-modal="sticker">
 								<div class="instant-card__img-box">
 									<picture>
-										<source srcset="images/instant-card-img6@1x.webp, images/instant-card-img6@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img6@1x.png" srcset="images/instant-card-img6@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img6@1x.webp, /images/instant-card-img6@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="/images/instant-card-img6@1x.png" srcset="/images/instant-card-img6@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">Термос *<span class="instant-card__counter">2</span></figcaption>
@@ -427,7 +427,7 @@
 							<figure class="instant-card instant-card--bg6" data-modal="sticker">
 								<div class="instant-card__img-box">
 									<picture>
-										<source srcset="images/instant-card-img7@1x.webp, images/instant-card-img7@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img7@1x.png" srcset="images/instant-card-img7@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img7@1x.webp, /images/instant-card-img7@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="/images/instant-card-img7@1x.png" srcset="/images/instant-card-img7@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">Волейбольный<br>мяч *</figcaption>
@@ -451,7 +451,7 @@
 					<p class="prize__label prize__label--light">Розыгрыш каждые 2 дня</p>
 					<p class="prize__condition">Среди всех, у кого не менее 100 баллов</p>
 					<picture>
-						<source srcset="images/prize-img1@1x.webp, images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img1@1x.png" srcset="images/prize-img1@2x.png 2x" alt=""/>
+						<source srcset="/images/prize-img1@1x.webp, /images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img1@1x.png" srcset="/images/prize-img1@2x.png 2x" alt=""/>
 					</picture>
 					<h3 class="prize__title">Ящик классического пива</h3>
 					<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -466,7 +466,7 @@
 					<p class="prize__label">Еженедельный розыгрыш</p>
 					<p class="prize__condition">Среди всех, у кого не менее 250 баллов</p>
 					<picture>
-						<source srcset="images/prize-img2@1x.webp, images/prize-img2@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img2@1x.png" srcset="images/prize-img2@2x.png 2x" alt=""/>
+						<source srcset="/images/prize-img2@1x.webp, /images/prize-img2@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img2@1x.png" srcset="/images/prize-img2@2x.png 2x" alt=""/>
 					</picture>
 					<h3 class="prize__title">Электрогриль *</h3>
 					<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -484,7 +484,7 @@
 					</p>
 					<p class="prize__condition">Среди всех, у кого не менее 1000 баллов</p>
 					<picture>
-						<source srcset="images/prize-img3@1x.webp, images/prize-img3@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img3@1x.png" srcset="images/prize-img3@2x.png 2x" alt=""/>
+						<source srcset="/images/prize-img3@1x.webp, /images/prize-img3@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img3@1x.png" srcset="/images/prize-img3@2x.png 2x" alt=""/>
 					</picture>
 					<h3 class="prize__title">Путешествие на двоих *</h3>
 					<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -518,7 +518,7 @@
 							<!-- Sticker-->
 							<figure class="sticker sticker--no-hover modal__sticker">
 								<picture>
-									<source srcset="images/sticker5@1x.webp, images/sticker5@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="images/sticker5@1x.jpg" srcset="images/sticker5@2x.jpg 2x" alt=""/>
+									<source srcset="/images/sticker5@1x.webp, /images/sticker5@2x.webp 2x" type="image/webp"/><img class="sticker__img" src="/images/sticker5@1x.jpg" srcset="/images/sticker5@2x.jpg 2x" alt=""/>
 								</picture>
 								<figcaption>
 									<p class="sticker__text">Варочный чан</p>

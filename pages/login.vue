@@ -2,7 +2,7 @@
   	<main class="main">
 		<section class="section-login">
 			<div class="section-login__container container">
-				<img class="section-login__logo" src="images/logo.svg" alt>
+				<img class="section-login__logo" src="/images/logo.svg" alt>
 				<div class="section-login__text-box">
 					<h1 class="section-login__title">Вкус путешествия с «Крафт»</h1>
 					<p class="section-login__text">Покупайте продукцию «Крафт» и получайте призы</p>

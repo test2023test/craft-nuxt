@@ -6,7 +6,7 @@
 					v-show="store.state.user.login.step === 1">
 					<div class="modal__img-box">
 						<picture>
-							<source srcset="images/modal-img1@1x.webp, images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="images/modal-img1@1x.jpg" srcset="images/modal-img1@2x.jpg 2x" alt=""/>
+							<source srcset="/images/modal-img1@1x.webp, /images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="/images/modal-img1@1x.jpg" srcset="/images/modal-img1@2x.jpg 2x" alt=""/>
 						</picture>
 					</div>
 					<div class="modal__content-box">
@@ -47,7 +47,7 @@
 					v-show="store.state.user.login.step === 2">
 					<div class="modal__img-box">
 						<picture>
-							<source srcset="images/modal-img1@1x.webp, images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="images/modal-img1@1x.jpg" srcset="images/modal-img1@2x.jpg 2x" alt=""/>
+							<source srcset="/images/modal-img1@1x.webp, /images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="/images/modal-img1@1x.jpg" srcset="/images/modal-img1@2x.jpg 2x" alt=""/>
 						</picture>
 					</div>
 					<div class="modal__content-box">
@@ -85,7 +85,7 @@
 					v-show="store.state.user.login.step === 3">
 					<div class="modal__img-box">
 						<picture>
-							<source srcset="images/modal-img1@1x.webp, images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="images/modal-img1@1x.jpg" srcset="images/modal-img1@2x.jpg 2x" alt=""/>
+							<source srcset="/images/modal-img1@1x.webp, /images/modal-img1@2x.webp 2x" type="image/webp"/><img class="modal__img" src="/images/modal-img1@1x.jpg" srcset="/images/modal-img1@2x.jpg 2x" alt=""/>
 						</picture>
 					</div>
 					<div class="modal__content-box">

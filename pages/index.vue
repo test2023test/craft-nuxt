@@ -14,7 +14,8 @@
 				</div>
 				<div class="section-hero__img-box">
 					<picture>
-						<source srcset="images/hero-img1@1x.webp, images/hero-img1@2x.webp 2x" type="image/webp"/><img class="section-hero__img" src="images/hero-img1@1x.png" srcset="images/hero-img1@2x.png 2x" alt=""/>
+						<source srcset="/images/hero-img1@1x.webp, /images/hero-img1@2x.webp 2x" type="image/webp"/>
+							<img class="section-hero__img" src="/images/hero-img1@1x.png" srcset="/images/hero-img1@2x.png 2x" alt=""/>
 					</picture>
 					<svg class="section-hero__waves">
 						<use xlink:href="#waves"></use>
@@ -32,7 +33,7 @@
 					<!-- Elem-->
 					<figure class="section-steps__elem step">
 						<picture>
-							<source srcset="images/steps-img1@1x.webp, images/steps-img1@2x.webp 2x" type="image/webp"/><img class="step__img" src="images/steps-img1@1x.png" srcset="images/steps-img1@2x.png 2x" alt=""/>
+							<source srcset="/images/steps-img1@1x.webp, /images/steps-img1@2x.webp 2x" type="image/webp"/><img class="step__img" src="/images/steps-img1@1x.png" srcset="/images/steps-img1@2x.png 2x" alt=""/>
 						</picture>
 						<figcaption>
 							<p class="step__text">Покупайте продукцию Крафт со знаком «Вкус путешествия с «Крафт»</p>
@@ -44,7 +45,7 @@
 					<!-- Elem-->
 					<figure class="section-steps__elem step">
 						<picture>
-							<source srcset="images/steps-img2@1x.webp, images/steps-img2@2x.webp 2x" type="image/webp"/><img class="step__img" src="images/steps-img2@1x.png" srcset="images/steps-img2@2x.png 2x" alt=""/>
+							<source srcset="/images/steps-img2@1x.webp, /images/steps-img2@2x.webp 2x" type="image/webp"/><img class="step__img" src="/images/steps-img2@1x.png" srcset="/images/steps-img2@2x.png 2x" alt=""/>
 						</picture>
 						<figcaption>
 							<p class="step__text">
@@ -59,7 +60,7 @@
 					<!-- Elem-->
 					<figure class="section-steps__elem step">
 						<picture>
-							<source srcset="images/steps-img3@1x.webp, images/steps-img3@2x.webp 2x" type="image/webp"/><img class="step__img" src="images/steps-img3@1x.png" srcset="images/steps-img3@2x.png 2x" alt=""/>
+							<source srcset="/images/steps-img3@1x.webp, /images/steps-img3@2x.webp 2x" type="image/webp"/><img class="step__img" src="/images/steps-img3@1x.png" srcset="/images/steps-img3@2x.png 2x" alt=""/>
 						</picture>
 						<figcaption>
 							<p class="step__text">Участвуйте в розыгрыше призов каждый день</p>
@@ -90,7 +91,7 @@
 							<figure class="instant-prize swiper-slide">
 								<div class="instant-prize__img-box">
 									<picture>
-										<source srcset="images/instant-card-img1@1x.webp, images/instant-card-img1@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="images/instant-card-img1@1x.png" srcset="images/instant-card-img1@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img1@1x.webp, /images/instant-card-img1@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="/images/instant-card-img1@1x.png" srcset="/images/instant-card-img1@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-prize__text">Майка</figcaption>
@@ -99,7 +100,7 @@
 							<figure class="instant-prize swiper-slide">
 								<div class="instant-prize__img-box">
 									<picture>
-										<source srcset="images/instant-card-img2@1x.webp, images/instant-card-img2@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="images/instant-card-img2@1x.png" srcset="images/instant-card-img2@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img2@1x.webp, /images/instant-card-img2@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="/images/instant-card-img2@1x.png" srcset="/images/instant-card-img2@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-prize__text">Худи</figcaption>
@@ -108,7 +109,7 @@
 							<figure class="instant-prize swiper-slide">
 								<div class="instant-prize__img-box">
 									<picture>
-										<source srcset="images/instant-card-img3@1x.webp, images/instant-card-img3@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="images/instant-card-img3@1x.png" srcset="images/instant-card-img3@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img3@1x.webp, /images/instant-card-img3@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="/images/instant-card-img3@1x.png" srcset="/images/instant-card-img3@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-prize__text">Открывашка</figcaption>
@@ -117,7 +118,7 @@
 							<figure class="instant-prize swiper-slide">
 								<div class="instant-prize__img-box">
 									<picture>
-										<source srcset="images/instant-card-img4@1x.webp, images/instant-card-img4@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="images/instant-card-img4@1x.png" srcset="images/instant-card-img4@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img4@1x.webp, /images/instant-card-img4@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="/images/instant-card-img4@1x.png" srcset="/images/instant-card-img4@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-prize__text">Бутылка<br>крафтового<br>пива</figcaption>
@@ -126,7 +127,7 @@
 							<figure class="instant-prize swiper-slide">
 								<div class="instant-prize__img-box">
 									<picture>
-										<source srcset="images/instant-card-img5@1x.webp, images/instant-card-img5@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="images/instant-card-img5@1x.png" srcset="images/instant-card-img5@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img5@1x.webp, /images/instant-card-img5@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="/images/instant-card-img5@1x.png" srcset="/images/instant-card-img5@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-prize__text">Шопер</figcaption>
@@ -135,7 +136,7 @@
 							<figure class="instant-prize swiper-slide">
 								<div class="instant-prize__img-box">
 									<picture>
-										<source srcset="images/instant-card-img6@1x.webp, images/instant-card-img6@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="images/instant-card-img6@1x.png" srcset="images/instant-card-img6@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img6@1x.webp, /images/instant-card-img6@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="/images/instant-card-img6@1x.png" srcset="/images/instant-card-img6@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-prize__text">Термос*</figcaption>
@@ -144,7 +145,7 @@
 							<figure class="instant-prize swiper-slide">
 								<div class="instant-prize__img-box">
 									<picture>
-										<source srcset="images/instant-card-img7@1x.webp, images/instant-card-img7@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="images/instant-card-img7@1x.png" srcset="images/instant-card-img7@2x.png 2x" alt=""/>
+										<source srcset="/images/instant-card-img7@1x.webp, /images/instant-card-img7@2x.webp 2x" type="image/webp"/><img class="instant-prize__img" src="/images/instant-card-img7@1x.png" srcset="/images/instant-card-img7@2x.png 2x" alt=""/>
 									</picture>
 								</div>
 								<figcaption class="instant-prize__text">Волейбольный мяч*</figcaption>
@@ -178,7 +179,7 @@
 						<p class="prize__label prize__label--light">Розыгрыш каждые два дня</p>
 						<p class="prize__condition">Среди всех, у кого не менее 100 баллов</p>
 						<picture>
-							<source srcset="images/prize-img1@1x.webp, images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img1@1x.png" srcset="images/prize-img1@2x.png 2x" alt=""/>
+							<source srcset="/images/prize-img1@1x.webp, /images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img1@1x.png" srcset="/images/prize-img1@2x.png 2x" alt=""/>
 						</picture>
 						<h3 class="prize__title">Ящик классического пива</h3>
 						<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -188,7 +189,7 @@
 						<p class="prize__label">Еженедельный розыгрыш</p>
 						<p class="prize__condition">Среди всех, у кого не менее 250 баллов</p>
 						<picture>
-							<source srcset="images/prize-img2@1x.webp, images/prize-img2@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img2@1x.png" srcset="images/prize-img2@2x.png 2x" alt=""/>
+							<source srcset="/images/prize-img2@1x.webp, /images/prize-img2@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img2@1x.png" srcset="/images/prize-img2@2x.png 2x" alt=""/>
 						</picture>
 						<h3 class="prize__title">Электрогриль *</h3>
 						<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -202,7 +203,7 @@
 						</p>
 						<p class="prize__condition">Среди всех, у кого не менее 1000 баллов</p>
 						<picture>
-							<source srcset="images/prize-img3@1x.webp, images/prize-img3@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img3@1x.png" srcset="images/prize-img3@2x.png 2x" alt=""/>
+							<source srcset="/images/prize-img3@1x.webp, /images/prize-img3@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img3@1x.png" srcset="/images/prize-img3@2x.png 2x" alt=""/>
 						</picture>
 						<h3 class="prize__title">Путешествие на двоих *</h3>
 						<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -222,7 +223,7 @@
 						<p class="prize__label">Розыгрыш каждые 10 дней</p>
 						<p class="prize__condition">Среди всех, у кого 4 стикера<br>«Мини пивоварня»</p>
 						<picture>
-							<source srcset="images/prize-img4@1x.webp, images/prize-img4@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img4@1x.png" srcset="images/prize-img4@2x.png 2x" alt=""/>
+							<source srcset="/images/prize-img4@1x.webp, /images/prize-img4@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img4@1x.png" srcset="/images/prize-img4@2x.png 2x" alt=""/>
 						</picture>
 						<h3 class="prize__title">30 литров пива</h3>
 						<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -232,7 +233,7 @@
 						<p class="prize__label">Розыгрыш каждые 10 дней</p>
 						<p class="prize__condition">Среди всех, у кого 4 стикера<br>«Варочный цех»</p>
 						<picture>
-							<source srcset="images/prize-img1@1x.webp, images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img1@1x.png" srcset="images/prize-img1@2x.png 2x" alt=""/>
+							<source srcset="/images/prize-img1@1x.webp, /images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img1@1x.png" srcset="/images/prize-img1@2x.png 2x" alt=""/>
 						</picture>
 						<h3 class="prize__title">45 литров пива</h3>
 						<p class="prize__players">Сейчас участвует: 1020 человек</p>
@@ -242,7 +243,7 @@
 						<p class="prize__label">Розыгрыш каждые 10 дней</p>
 						<p class="prize__condition">Среди всех, у кого 4 стикера<br>«Цех розлива пива»</p>
 						<picture>
-							<source srcset="images/prize-img5@1x.webp, images/prize-img5@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img5@1x.png" srcset="images/prize-img5@2x.png 2x" alt=""/>
+							<source srcset="/images/prize-img5@1x.webp, /images/prize-img5@2x.webp 2x" type="image/webp"/><img class="prize__img" src="/images/prize-img5@1x.png" srcset="/images/prize-img5@2x.png 2x" alt=""/>
 						</picture>
 						<h3 class="prize__title">60 литров пива</h3>
 						<p class="prize__players">Сейчас участвует: 1020 человек</p>

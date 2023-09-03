@@ -8,7 +8,7 @@
 			<div class="modal__content modal__content--image-left">
 				<div class="modal__img-box">
 					<picture>
-						<source srcset="images/modal-img2@1x.webp, images/modal-img2@2x.webp 2x" type="image/webp"/><img class="modal__img" src="images/modal-img2@1x.jpg" srcset="images/modal-img2@2x.jpg 2x" alt=""/>
+						<source srcset="/images/modal-img2@1x.webp, /images/modal-img2@2x.webp 2x" type="image/webp"/><img class="modal__img" src="/images/modal-img2@1x.jpg" srcset="/images/modal-img2@2x.jpg 2x" alt=""/>
 					</picture>
 				</div>
 				<div class="modal__content-box">

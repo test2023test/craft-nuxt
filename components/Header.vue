@@ -8,7 +8,7 @@
 				<svg class="header__menu-btn-icon header__menu-btn-icon--close">
 					<use xlink:href="#close"></use>
 				</svg>
-			</button><NuxtLink class="header__logo-link" to="/"><img class="header__logo" src="images/logo.svg" alt="alt"/></NuxtLink>
+			</button><NuxtLink class="header__logo-link" to="/"><img class="header__logo" src="/images/logo.svg" alt="alt"/></NuxtLink>
 			<nav class="header__nav">
 				<ul class="header__nav-list">
 					<li class="header__nav-elem"><NuxtLink class="header__nav-link" to="/">Правила и призы</NuxtLink></li>

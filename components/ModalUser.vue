@@ -192,7 +192,6 @@
 				"email": data.value.email
 			}
 		)
-		await store.dispatch('user/loginInToSystem',)
 	}
 </script>
 <style lang="scss">

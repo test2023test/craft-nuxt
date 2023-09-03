@@ -237,7 +237,7 @@
 		</section>
 		<!-- Section Lk text-->
 		<section class="section-lk-text container">
-			<h2 class="section-lk-text__text" v-if="$store.state.user.data.firstName">{{$store.state.user.data.firstName}}, желаем вам удачи!</h2>
+			<h2 class="section-lk-text__text" v-if="$store.state.user.data?.firstName">{{$store.state.user.data?.firstName}}, желаем вам удачи!</h2>
 			<h2 class="section-lk-text__text" v-else>Желаем вам удачи!</h2>
 			<p class="section-lk-text__text">
 				Если остались вопросы —
@@ -252,10 +252,10 @@ import { useStore } from "vuex";
 import { showModal } from '~/assets/js/components/modal.js'
 const store = useStore();
 	const firstName = computed(() => {
-		return store.state.user.data.firstName === '' ? 'Имя' : store.state.user.data.firstName
+		return store.state.user.data?.firstName === '' ? 'Имя' : store.state.user.data?.firstName
 	})
 	const lastName = computed(() => {
-		return store.state.user.data.lastName === '' ? 'Фамилия' : store.state.user.data.lastName
+		return store.state.user.data?.lastName === '' ? 'Фамилия' : store.state.user.data?.lastName
 	})
 	const phone = computed(() => {
 		if(store.state.user.data.phone)

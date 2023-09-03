@@ -28,7 +28,7 @@
 		},
 		mounted()
 		{
-			ymaps.ready(YaMap.init({}));
+			ymaps.ready(()=>(YaMap.init({})));
 		},
 	}
 </script>

@@ -25,7 +25,7 @@
 						<div class="modal__wrap">
 							<p class="modal__subtitle">Стикер</p>
 							<h2 class="modal__title">«{{$store.state.modal.stikerData?.name}}»</h2>
-							<div class="modal__info-box">
+							<div class="modal__info-box" v-if="$store.state.modal.stikerData?.extraText">
 								<svg class="modal__info-box-icon">
 									<use xlink:href="#info"></use>
 								</svg>

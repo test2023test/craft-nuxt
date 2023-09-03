@@ -173,20 +173,11 @@
 			body: JSON.stringify(sendData)
 		}).then(async (response)=>{
 			let json = await response.json();
-			if(true)
+			if(json.success)
 			{
 				isError.value = false;
-				store.commit('modal/setStikerData', 
-					{
-						"id": 24,
-						"name": "Варочный чан",
-						"iconUrl": "https://...jpg",
-						"extraText": "Собери ещё 2 стикера из коллекции «Варочный цех»для участия в розыгрыше Путешествия",
-						"content": "<p>текст текст текст</p>",
-						"imageUrl": "https://...jpg"
-					});
+				store.commit('modal/setStickerData', json.userCode.sticker);
 				showStiker();
-				// store.commit('modal/setStikerData', json.stiker);
 			}
 			else isError.value = true;
 		})

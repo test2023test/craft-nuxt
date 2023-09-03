@@ -4,7 +4,7 @@ export default {
 		stikerData: {}
 	},
 	mutations: {
-		setStikerData(state, newData)
+		setStickerData(state, newData)
 		{
 			state.stikerData = newData;
 		}

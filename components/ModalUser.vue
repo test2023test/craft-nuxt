@@ -154,6 +154,7 @@
 	</div>
 </template>
 <script setup>
+	import { closeModal } from '~/assets/js/components/modal.js'
 	import { computed, ref } from "vue"
 	import { useStore } from "vuex";
 	const store = useStore();
@@ -192,67 +193,6 @@
 			}
 		)
 		await store.dispatch('user/loginInToSystem',)
-	}
-	function closeModal() {
-		if (process.browser)
-		{		
-			const modal = document.querySelector('.modal--shown')
-			modal.classList.remove('modal--shown')
-
-			setTimeout(
-				() => {
-					modal.classList.remove('modal--backdrop')
-				},
-				150,
-				modal
-			)
-
-			setTimeout(
-				() => {
-					modal.classList.remove('modal--show')
-				},
-				350,
-				modal
-			)
-
-			document.documentElement.style.overflow = ''
-			document.body.style.overflow = ''
-		}
-	}
-	function showModal(modalName)
-	{
-		if(process.browser){
-			const modal = document.querySelector(`#${modalName}`)
-			if (!modal) {
-				return
-			}
-
-			if (document.querySelector('.modal--shown')) {
-				closeModal()
-			}
-
-			document.documentElement.style.overflow = 'hidden'
-			document.body.style.overflow = 'hidden'
-
-			modal.classList.add('modal--show')
-			initSlider(modal)
-
-			setTimeout(
-				() => {
-					modal.classList.add('modal--backdrop')
-				},
-				50,
-				modal
-			)
-
-			setTimeout(
-				() => {
-					modal.classList.add('modal--shown')
-				},
-				300,
-				modal
-			)
-		}
 	}
 </script>
 <style lang="scss">

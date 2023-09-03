@@ -17,7 +17,7 @@
 							<h2 class="modal__title">Зарегистрировать код</h2>
 							<p class="modal__subtitle">Ищите код в продукции со знаком<br>«Вкус путешествия с «Крафт»</p>
 						</div>
-						<button class="modal__close js-modal-close">
+						<button class="modal__close" @click="closeModal">
 							<svg class="modal__close-icon">
 								<use xlink:href="#close"></use>
 							</svg>
@@ -136,7 +136,8 @@
 	</div>
 </template>
 <script setup>
-	import { useStore } from "vuex"
+	import { useStore } from "vuex";
+	import { closeModal } from '~/assets/js/components/modal.js';
 	let store = useStore();
 </script>
 <style lang="scss">

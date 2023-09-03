@@ -12,7 +12,7 @@
 					<div class="modal__content-box">
 						<div class="modal__title-box">
 							<h2 class="modal__title">Вход в личный кабинет</h2>
-							<button class="modal__close js-modal-close">
+							<button class="modal__close" @click="closeModal">
 								<svg class="modal__close-icon">
 									<use xlink:href="#close"></use>
 								</svg>
@@ -66,7 +66,7 @@
 							</div>
 							<p class="modal__hint">
 								Если код не пришёл, запросите
-								<a class="modal__hint-link" href="#">новый код</a>
+								<a class="modal__hint-link" href="#" @click="sendNumber">новый код</a>
 							</p>
 						</div>
 						<button
@@ -74,7 +74,7 @@
 							:disabled="!code"
 							@click="checkCode"
 						>Подтвердить</button>
-						<button class="modal__button-back">
+						<button class="modal__button-back" @click="store.commit('user/setLoginStep', 1)">
 							<svg class="modal__button-back-icon">
 								<use xlink:href="#arrow-back"></use>
 							</svg>Изменить телефон
@@ -91,7 +91,7 @@
 					<div class="modal__content-box">
 						<div class="modal__title-box">
 							<h2 class="modal__title show-desktop">Вход в личный кабинет</h2>
-							<button class="modal__close js-modal-close">
+							<button class="modal__close" @click="closeModal">
 								<svg class="modal__close-icon">
 									<use xlink:href="#close"></use>
 								</svg>
@@ -104,7 +104,7 @@
 							<p class="modal__success-text">Ваш номер телефона подтверждён!</p>
 						</div>
 						<button
-							class="button button--orange button--orange-md js-modal-close"
+							class="button button--orange button--orange-md" 
 							@click="login">Войти
 						</button>
 					</div>
@@ -116,8 +116,10 @@
 <script setup>
 	import { ref } from "vue"
 	import { useStore } from "vuex";
+	import { closeModal } from "~/assets/js/components/modal" 
+
 	const store = useStore();
-	let phoneNumber = ref('79187024219');
+	let phoneNumber = ref('');
 	let code = ref('');
 	let isConsentToDataProcessing = ref(true);
 	function inputNumber ({target})
@@ -126,6 +128,7 @@
 	};
 	function sendNumber()
 	{
+		console.log(123);
 		store.dispatch('user/sendPhoneNumber', phoneNumber.value)	
 	}
 	function checkCode()
@@ -134,6 +137,7 @@
 	}
 	async function login()
 	{
+		closeModal();
 		await store.dispatch('user/loginInToSystem');
 	}
 </script>

@@ -557,6 +557,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue"
 import { useStore } from "vuex";
+import { showModal } from '~/assets/js/components/modal.js'
 const store = useStore();
 	const firstName = computed(() => {
 		return store.state.user.data.firstName === '' ? 'Имя' : store.state.user.data.firstName
@@ -573,72 +574,6 @@ const store = useStore();
 		else
 			return '-';
 	})
-
-
-	function showModal(modalName)
-	{
-		if(process.browser){
-			const modal = document.querySelector(`#${modalName}`)
-			if (!modal) {
-				return
-			}
-
-			if (document.querySelector('.modal--shown')) {
-				closeModal()
-			}
-
-			document.documentElement.style.overflow = 'hidden'
-			document.body.style.overflow = 'hidden'
-
-			modal.classList.add('modal--show')
-			initSlider(modal);
-			setTimeout(
-				() => {
-					modal.classList.add('modal--backdrop')
-				},
-				50,
-				modal
-			)
-
-			setTimeout(
-				() => {
-					modal.classList.add('modal--shown')
-				},
-				300,
-				modal
-			)
-		}
-	}
-	const initSlider = (modal) => {
-		
-		const sliderEl = modal.querySelector('.modal__slider')
-		if (!sliderEl || slider) return
-
-		slider = new Swiper(sliderEl, {
-			modules: [EffectCreative],
-			watchSlidesProgress: true,
-			slidesPerView: 5,
-			spaceBetween: 0,
-			loop: true,
-			effect: "creative",
-			centeredSlides: true,
-			creativeEffect: {
-				limitProgress:5,
-				prev: {
-					translate: ['-100%', 0, 0],
-					scale: [.7],
-				},
-				next: {
-					translate: ['100%', 0, 0],
-					scale: [.7],
-				},
-			},
-		})
-
-		setInterval(() => {
-			slider.slideNext()
-		}, 1000, slider)
-	}
 </script>
 <style lang="scss">
 </style>

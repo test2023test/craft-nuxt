@@ -2,7 +2,7 @@
 	<main class="main">
 		<section class="section-where-buy">
 			<div class="container">
-				<h1 class="section-where-buy__title">Гду купить?</h1>
+				<h1 class="section-where-buy__title">Гдe купить?</h1>
 				<div class="section-where-buy__content">
 					<div class="section-where-buy__button-col">
 						<div class="section-where-buy__button-scroll-container">
@@ -83,9 +83,9 @@
 		pointsList = ref([]),
 		yamap = ref(null);
 
-
 	onMounted(()=>{
 		fetchCities();
+		fetchCarrentCity();
 	});
 	function setActivePoint(newPoint)
 	{
@@ -108,6 +108,13 @@
 		fetch( runtimeConfig.public.API_BASE_URL + '/cities/').then(async (response)=>{
 			let dataJson = await response.json();
 			cities.value = dataJson.cities;
+		})
+	}
+	function fetchCarrentCity(){
+		fetch(runtimeConfig.public.API_BASE_URL + '/current-city/').then(async (response)=>{
+			let dataJson = await response.json();
+			if(dataJson.success)
+				activeCity.value = dataJson.currentCity;
 		})
 	}
 </script>

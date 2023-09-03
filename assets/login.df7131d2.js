@@ -1,0 +1,1 @@
+import{_ as t}from"./Sprite.922e9863.js";import{_ as n}from"./_plugin-vue_export-helper.c27b6911.js";import{c as r,D as c,b as s,o as _}from"./entry.75f30551.js";const a={};function l(o,m){const e=t;return _(),r("div",null,[c(o.$slots,"default"),s(e)])}const d=n(a,[["render",l]]);export{d as default};

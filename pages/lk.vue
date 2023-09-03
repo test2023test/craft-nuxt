@@ -170,7 +170,7 @@
 		<!-- Section Dashboard-->
 		<StikersSection />
 		<!-- Section Instant-->
-		<InstantSection />
+		<InstantSection/>
 		<!-- Section Prizes-->
 		<section class="section-prizes section-prizes--lk container">
 			<h2 class="section-prizes__title">
@@ -247,7 +247,7 @@
 	</main>
 </template>
 <script setup>
-import { ref, computed, onMounted } from "vue"
+import { ref, computed,  } from "vue"
 import { useStore } from "vuex";
 import { showModal } from '~/assets/js/components/modal.js'
 const store = useStore();

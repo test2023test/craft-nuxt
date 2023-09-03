@@ -7,12 +7,11 @@
 				</svg>Мгновенные призы
 			</h2>
 			<p class="section-instant__text"><span class="text-orange">ПОКУПАЙТЕ БОЛЬШЕ</span>
-				
 				продукции и получите шанс выиграть мгновенные призы
 			</p>
 			<div class="swiper section-instant__slider-elem">
 				<div class="swiper-wrapper section-instant__grid">
-					<template v-for="(sticker, index) of $store.getters['user/instantStikers']" >
+					<template v-for="(sticker, index) of $store.getters['user/instantStickers']" >
 						<div class="section-instant__grid-col swiper-slide">
 							<figure
 								class="instant-card instant-card--bg1"
@@ -21,11 +20,11 @@
 							>
 								<div class="instant-card__img-box">
 									<picture>
-										<source :srcset="srcsets[index].srcset " type="image/webp"/>
+										<source :srcset="staticData[index].srcset " type="image/webp"/>
 										<img
 											class="instant-card__img"
 											:src="sticker.iconUrl"
-											:srcset="srcsets[index].imgSrcset" alt=""
+											:srcset="staticData[index].imgSrcset" alt=""
 										/>
 									</picture>
 								</div>
@@ -40,7 +39,7 @@
 	</section>
 </template>
 <script setup>
-	const srcsets = [
+	const staticData = [
 		{
 			srcset: "images/instant-card-img1@1x.webp, images/instant-card-img1@2x.webp 2x",
 			imgSrcset: "images/instant-card-img1@2x.png 2x"

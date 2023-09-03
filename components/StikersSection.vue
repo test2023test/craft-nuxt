@@ -1,29 +1,30 @@
 <template>
-  <section class="section-dashboard container">
+  <section class="section-dashboard container"> 
 		<h2 class="section-dashboard__title"><span class="text-orange">Регистрируйте больше кодов</span>,<br>получайте стикеры и баллы, выигрывайте призы</h2>
 		<div class="section-dashboard__grid">
-			<div class="section-dashboard__col" v-for="(stikerList, stikerListIndex) of $store.getters['user/stikers']">
+
+			<div class="section-dashboard__col" v-for="(stickerList, stickerListIndex) of $store.getters['user/stickers']">
 				<h3 class="section-dashboard__col-title">
-					{{staticData[stikerListIndex].title}}
+					{{staticData[stickerListIndex].title}}
 				</h3>
-				<p class="section-dashboard__col-text" v-html="staticData[stikerListIndex].subtitle">
+				<p class="section-dashboard__col-text" v-html="staticData[stickerListIndex].subtitle">
 				</p>
-				<p class="section-dashboard__players" v-html="staticData[stikerListIndex].countOfParticipants">
+				<p class="section-dashboard__players" v-html="staticData[stickerListIndex].countOfParticipants">
 				</p>
 				<div class="section-dashboard__col-grid">
 					<!-- Sticker-->
 					<figure
-						v-for="(sticker, index) of stikerList"
-						@click="openStikerDetail(sticker)"
+						v-for="(sticker, index) of stickerList"
+						@click="openStickerDetail(sticker)"
 						class="sticker"
 						:class="{'sticker--disabled': !sticker.activatedCount}"
 					>
 						<picture>
 							<source
-								:srcset="staticData[stikerListIndex].items[index].srcset"
+								:srcset="staticData[stickerListIndex].items[index].srcset"
 								type="image/webp"
 							/>
-								<img class="sticker__img" :src="sticker.iconUrl" :srcset="staticData[stikerListIndex].items[index].srcImg" alt=""/>
+								<img class="sticker__img" :src="sticker.iconUrl" :srcset="staticData[stickerListIndex].items[index].srcImg" alt=""/>
 						</picture>
 						<figcaption>
 							<p class="sticker__text">{{sticker.name}}</p>
@@ -38,15 +39,15 @@
 				</div>
 				<p
 					class="section-dashboard__col-status"
-					:class="{'section-dashboard__col-status--green':staticData[stikerListIndex].isActive}"
+					:class="{'section-dashboard__col-status--green':staticData[stickerListIndex].isActive}"
 				>
 				<svg
-					v-if="staticData[stikerListIndex].isActive"
+					v-if="staticData[stickerListIndex].isActive"
 					class="section-dashboard__col-status-icon"
 				>
 					<use xlink:href="#thumbs-up"></use>
 				</svg>
-				 {{staticData[stikerListIndex].status}}
+				 {{staticData[stickerListIndex].status}}
 				</p>
 			</div>
 		</div>
@@ -140,15 +141,15 @@
 
 	const store = useStore();
 	onMounted(()=>{
-		store.dispatch('user/getStiker')
+		store.dispatch('user/getSticker');
 	});
-	function openStikerDetail(stikerId)
+	function openStickerDetail(stickerId)
 	{
-		store.commit('modal/setStikerData', 
+		store.commit('modal/setStickerData', 
 		{
 			"id": 24,
-			"name": store.state.user.stikerList[stikerId].name,
-			"iconUrl": store.state.user.stikerList[stikerId].iconUrl,
+			"name": store.state.user.stickerList[stickerId].name,
+			"iconUrl": store.state.user.stickerList[stickerId].iconUrl,
 			"activatedCount": 2,
 			"extraText": "Собери ещё 2 стикера из коллекции «Варочный цех» для участия в розыгрыше Путешествия",
 			"content": "<p>текст текст текст</p>",

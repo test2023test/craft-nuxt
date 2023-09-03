@@ -97,9 +97,9 @@ export default {
 				body: JSON.stringify(dataToSend)
 			})	
 		},
-		getStiker({commit, getters})
+		async getSticker({commit, getters})
 		{
-			fetch(getters.apiUrl + '/stickers/?token=' + localStorage.getItem('userToken'))
+			await fetch(getters.apiUrl + '/stickers/?token=' + localStorage.getItem('userToken'))
 				.then(async (response)=>{
 					let resultData = await response.json();
 					if(resultData.success)
@@ -113,15 +113,14 @@ export default {
 			return phoneNumber.replace(/[^+\d]/g, '').replace('+', '');
 		},
 		apiUrl: () => (useRuntimeConfig().public.API_BASE_URL),
-		instantStikers(state)
+		instantStickers(state)
 		{
 			return state.stikerList.filter((item, index) => index > 11)
 		},
-		stikers(state)
+		stickers(state)
 		{
 			return state.stikerList.filter((item, index) => index <= 11).reduce(
 				(result, item, index)=>{
-					console.log(Math.floor(index / 4));
 					result[Math.floor(index / 4)].push(item);
 					return result;
 				}, [[],[],[]])

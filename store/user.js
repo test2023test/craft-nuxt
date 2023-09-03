@@ -7,7 +7,8 @@ export default {
 			login: {
 				step: 1,
 			},
-			data:{}
+			data:{},
+			stikerList: []
 		}
 	},
 	mutations: {
@@ -26,6 +27,10 @@ export default {
 		{
 			state.isLogin = newValue;
 		},
+		setStikers(state, newStikerList)
+		{
+			state.stikerList = newStikerList
+		}
 	},
 	actions: {
 		async sendPhoneNumber({getters, commit}, phoneNumber)
@@ -90,15 +95,36 @@ export default {
 				method:"POST",
 				headers: {'Content-Type': 'application/json;charset=utf-8'},
 				body: JSON.stringify(dataToSend)
-			})
-			
-		}
+			})	
+		},
+		getStiker({commit, getters})
+		{
+			fetch(getters.apiUrl + '/stickers/?token=' + localStorage.getItem('userToken'))
+				.then(async (response)=>{
+					let resultData = await response.json();
+					if(resultData.success)
+						commit('setStikers', resultData.stickers);
+				})
+		},
 	},
 	getters:
 	{
 		getPhoneNumberInCorrectForm:()=> (phoneNumber) => {
 			return phoneNumber.replace(/[^+\d]/g, '').replace('+', '');
 		},
-		apiUrl: () => useRuntimeConfig().public.API_BASE_URL
+		apiUrl: () => (useRuntimeConfig().public.API_BASE_URL),
+		instantStikers(state)
+		{
+			return state.stikerList.filter((item, index) => index > 11)
+		},
+		stikers(state)
+		{
+			return state.stikerList.filter((item, index) => index <= 11).reduce(
+				(result, item, index)=>{
+					console.log(Math.floor(index / 4));
+					result[Math.floor(index / 4)].push(item);
+					return result;
+				}, [[],[],[]])
+		}
 	}
 };	

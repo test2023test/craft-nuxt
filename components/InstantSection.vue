@@ -12,11 +12,11 @@
 			</p>
 			<div class="swiper section-instant__slider-elem">
 				<div class="swiper-wrapper section-instant__grid">
-					<template v-for="(stiker, index) of $store.getters['user/instantStikers']" >
+					<template v-for="(sticker, index) of $store.getters['user/instantStikers']" >
 						<div class="section-instant__grid-col swiper-slide">
 							<figure
 								class="instant-card instant-card--bg1"
-								:class="{'instant-card--disabled': !stiker.activatedCount}"
+								:class="{'instant-card--disabled': !sticker.activatedCount}"
 								data-modal="sticker"
 							>
 								<div class="instant-card__img-box">
@@ -24,26 +24,16 @@
 										<source :srcset="srcsets[index].srcset " type="image/webp"/>
 										<img
 											class="instant-card__img"
-											src="stiker.iconUrl"
+											:src="sticker.iconUrl"
 											:srcset="srcsets[index].imgSrcset" alt=""
 										/>
 									</picture>
 								</div>
-								<figcaption class="instant-card__text">{{stiker.name}}<span class="instant-card__counter">3</span></figcaption>
+								<figcaption class="instant-card__text">{{sticker.name}}
+								<span class="instant-card__counter" v-if="sticker.activatedCount">sticker.activatedCount</span></figcaption>
 							</figure>
 						</div>
 					</template>
-					<div class="section-instant__grid-col swiper-slide">
-						<!-- Card-->
-						<figure class="instant-card instant-card--disabled instant-card--bg1">
-							<div class="instant-card__img-box">
-								<picture>
-									<source srcset="images/instant-card-img2@1x.webp, images/instant-card-img2@2x.webp 2x" type="image/webp"/><img class="instant-card__img" src="images/instant-card-img2@1x.png" srcset="images/instant-card-img2@2x.png 2x" alt=""/>
-								</picture>
-							</div>
-							<figcaption class="instant-card__text">Худи</figcaption>
-						</figure>
-					</div>
 				</div>
 			</div>
 		</div>

@@ -237,7 +237,8 @@
 		</section>
 		<!-- Section Lk text-->
 		<section class="section-lk-text container">
-			<h2 class="section-lk-text__text">Светлана, желаем вам удачи!</h2>
+			<h2 class="section-lk-text__text" v-if="$store.state.user.data.firstName">{{$store.state.user.data.firstName}}, желаем вам удачи!</h2>
+			<h2 class="section-lk-text__text" v-else>Желаем вам удачи!</h2>
 			<p class="section-lk-text__text">
 				Если остались вопросы —
 				<span class="text-orange">напишите нам</span>.

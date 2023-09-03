@@ -8,7 +8,7 @@
 							<h2 class="modal__title">Мои данные</h2>
 							<p class="modal__subtitle">Пожалуйста, введите свои реальные данные, иначе могут быть проблемы при получении призов.</p>
 						</div>
-						<button class="modal__close js-modal-close">
+						<button class="modal__close" @click="closeModal">
 							<svg class="modal__close-icon">
 								<use xlink:href="#close"></use>
 							</svg>
@@ -143,7 +143,10 @@
 								</p>
 							</div>
 						</div>
-						<button class="button button--orange button--orange-md js-modal-close">Обновить</button>
+						<button
+							class="button button--orange button--orange-md"
+							@click="closeModal"
+						>Обновить</button>
 					</form>
 				</div>
 			</div>
@@ -190,7 +193,67 @@
 		)
 		await store.dispatch('user/loginInToSystem',)
 	}
+	function closeModal() {
+		if (process.browser)
+		{		
+			const modal = document.querySelector('.modal--shown')
+			modal.classList.remove('modal--shown')
 
+			setTimeout(
+				() => {
+					modal.classList.remove('modal--backdrop')
+				},
+				150,
+				modal
+			)
+
+			setTimeout(
+				() => {
+					modal.classList.remove('modal--show')
+				},
+				350,
+				modal
+			)
+
+			document.documentElement.style.overflow = ''
+			document.body.style.overflow = ''
+		}
+	}
+	function showModal(modalName)
+	{
+		if(process.browser){
+			const modal = document.querySelector(`#${modalName}`)
+			if (!modal) {
+				return
+			}
+
+			if (document.querySelector('.modal--shown')) {
+				closeModal()
+			}
+
+			document.documentElement.style.overflow = 'hidden'
+			document.body.style.overflow = 'hidden'
+
+			modal.classList.add('modal--show')
+			initSlider(modal)
+
+			setTimeout(
+				() => {
+					modal.classList.add('modal--backdrop')
+				},
+				50,
+				modal
+			)
+
+			setTimeout(
+				() => {
+					modal.classList.add('modal--shown')
+				},
+				300,
+				modal
+			)
+		}
+	}
 </script>
 <style lang="scss">
 </style>

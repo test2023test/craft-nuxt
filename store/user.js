@@ -65,7 +65,6 @@ export default {
 		},
 		async loginInToSystem({getters, commit})
 		{
-			console.log('loginInToSystem');
 			fetch(getters.apiUrl + '/user/?token=' + localStorage.getItem('userToken'))
 			.then(async (response)=>
 			{

@@ -128,7 +128,6 @@
 	};
 	function sendNumber()
 	{
-		console.log(123);
 		store.dispatch('user/sendPhoneNumber', phoneNumber.value)	
 	}
 	function checkCode()

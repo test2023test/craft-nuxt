@@ -24,16 +24,28 @@
 						</button>
 					</div>
 					<div class="modal__wrap">
-						<div class="form-group">
+						<div class="form-group" :class="{'form-group--error': isError}">
 							<label class="form-group__label form-group__label--center">Код под крышкой</label>
-							<input class="form-group__input" type="text" name="code" placeholder="Введите код">
+							<input
+								v-model="contentCode"
+								class="form-group__input"
+								type="text"
+								name="code"
+								placeholder="Введите код"
+							>
+							<span class="form-group__error-text" data-v-inspector="components/ModalUser.vue:20:97">Неверный код.</span>
 						</div>
 						<p class="modal__hint">Если у вас есть проблемы с регистрацией кодов,<br>пожалуйста,
 							
 							<a class="text-orange" href="#">напишите нам.</a>
 						</p>
 					</div>
-					<button class="button button--orange button--orange-md modal__btn">Отправить</button>
+					<button
+						class="button button--orange button--orange-md modal__btn"
+						@click="sendCode"
+					>
+						Отправить
+					</button>
 				</div>
 			</div>
 		</div>
@@ -136,9 +148,54 @@
 	</div>
 </template>
 <script setup>
+	import { ref } from "vue"
 	import { useStore } from "vuex";
-	import { closeModal } from '~/assets/js/components/modal.js';
+	import { closeModal, showModal } from '~/assets/js/components/modal.js';
+	const runtimeConfig = useRuntimeConfig();
 	let store = useStore();
+	const contentCode = ref(''),
+		isError = ref(false);
+
+	function sendCode()
+	{
+		let userToken = localStorage.getItem('userToken');
+		let sendData =  {
+			"firstName": store.state.user.data.firstName,
+			"lastName": store.state.user.data.lastName,
+			"email": store.state.user.data.email,
+			"content": contentCode.value
+		}
+		fetch(runtimeConfig.public.API_BASE_URL + '/code/?token=' + userToken, {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json;charset=utf-8'
+			},
+			body: JSON.stringify(sendData)
+		}).then(async (response)=>{
+			let json = await response.json();
+			if(true)
+			{
+				isError.value = false;
+				store.commit('modal/setStikerData', 
+					{
+						"id": 24,
+						"name": "Варочный чан",
+						"iconUrl": "https://...jpg",
+						"extraText": "Собери ещё 2 стикера из коллекции «Варочный цех»для участия в розыгрыше Путешествия",
+						"content": "<p>текст текст текст</p>",
+						"imageUrl": "https://...jpg"
+					});
+				showStiker();
+				// store.commit('modal/setStikerData', json.stiker);
+			}
+			else isError.value = true;
+		})
+	}
+	function showStiker()
+	{
+		closeModal();
+		showModal('sticker');
+	}
 </script>
 <style lang="scss">
 </style>

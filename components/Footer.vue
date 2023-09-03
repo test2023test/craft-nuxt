@@ -20,5 +20,6 @@
 		<ModalLogin />
 		<ModalCode />
 		<ModalUser />
+		<ModalStiker />
 	</footer>
 </template>

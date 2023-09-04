@@ -78,49 +78,7 @@
 			</section>
 			<instantSectionSlider />
 			<!-- Section Prizes-->
-			<section class="section-prizes section-prizes--score container">
-				<h2 class="section-prizes__title">
-					<svg class="section-prizes__title-icon">
-						<use xlink:href="#clock"></use>
-					</svg>Призы за баллы
-				</h2>
-				<div class="section-prizes__grid">
-					<!-- Prize-->
-					<article class="prize">
-						<p class="prize__label prize__label--light">Розыгрыш каждые два дня</p>
-						<p class="prize__condition">Среди всех, у кого не менее 100 баллов</p>
-						<picture>
-							<source srcset="images/prize-img1@1x.webp, images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img1@1x.png" srcset="images/prize-img1@2x.png 2x" alt=""/>
-						</picture>
-						<h3 class="prize__title">Ящик классического пива</h3>
-						<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					</article>
-					<!-- Prize-->
-					<article class="prize">
-						<p class="prize__label">Еженедельный розыгрыш</p>
-						<p class="prize__condition">Среди всех, у кого не менее 250 баллов</p>
-						<picture>
-							<source srcset="images/prize-img2@1x.webp, images/prize-img2@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img2@1x.png" srcset="images/prize-img2@2x.png 2x" alt=""/>
-						</picture>
-						<h3 class="prize__title">Электрогриль *</h3>
-						<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					</article>
-					<!-- Prize-->
-					<article class="prize prize--main">
-						<p class="prize__label prize__label--light">
-							<svg class="prize__label-icon">
-								<use xlink:href="#star"></use>
-							</svg>Главный приз
-						</p>
-						<p class="prize__condition">Среди всех, у кого не менее 1000 баллов</p>
-						<picture>
-							<source srcset="images/prize-img3@1x.webp, images/prize-img3@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img3@1x.png" srcset="images/prize-img3@2x.png 2x" alt=""/>
-						</picture>
-						<h3 class="prize__title">Путешествие на двоих *</h3>
-						<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					</article>
-				</div>
-			</section>
+			<BasicLotterySection />
 			<!-- Section Prizes-->
 			<StickerSectionPromo />
 		</div>

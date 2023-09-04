@@ -3,7 +3,8 @@ export default {
 	namespaced: true,
 	state: ()=>({
 		collection: [],
-		instant: []
+		instant: [],
+		basic: []
 	}),
 	mutations: {
 		setCollectionLottery(state, newValue)
@@ -13,6 +14,10 @@ export default {
 		setInstantLottery(state, newValue)
 		{
 			state.instant = newValue;	
+		},
+		setBasicLottery(state, newValue)
+		{
+			state.basic = newValue;
 		}
 	},
 	actions: {
@@ -32,6 +37,15 @@ export default {
 				.then(async (response)=>{
 					let data = await response.json();
 					commit('setInstantLottery', data.lotteries);
+				})
+		},
+		async fetchBasicLottery({getters, commit})
+		{
+			let route = `${getters.apiUrl}/lotteries/?token=${localStorage.getItem('userToken')}&type=basic`;
+			await fetch(route)
+				.then(async (response)=>{
+					let data = await response.json();
+					commit('setBasicLottery', data.lotteries);
 				})
 		}
 	},

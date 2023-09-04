@@ -38,11 +38,10 @@ export default {
 		}
 	},
 	actions: {
-		async sendPhoneNumber({getters, commit}, phoneNumber)
+		async fetchPhone({getters, commit}, phoneNumber)
 		{
 			const correctPhoneNumber = getters.getPhoneNumberInCorrectForm(phoneNumber);
-			
-			let fetchAnswer = await fetch(getters.apiUrl + '/send-phone-code/',
+			return await fetch(getters.apiUrl + '/send-phone-code/',
 				{
 					method:'POST',
 					headers: {
@@ -50,25 +49,33 @@ export default {
 					},
 					body: JSON.stringify({phone: correctPhoneNumber})
 				})
-				commit('setLoginStep', 2)
 		},
-		async checkCode({commit, getters}, {phone, code}) 
+		async fetchUserCode({getters}, {phone, code})
 		{
-			let response = await fetch(getters.apiUrl + '/check-phone-code/', 
-				{
-					method:"POST",
-					headers: {
-						'Content-Type': 'application/json;charset=utf-8'
-					},
-					body: JSON.stringify(
-						{
-							"phone": getters.getPhoneNumberInCorrectForm(phone),
-							"code": code}
-					)
-				})
+			return await fetch(getters.apiUrl + '/check-phone-code/', 
+			{
+				method:"POST",
+				headers: {
+					'Content-Type': 'application/json;charset=utf-8'
+				},
+				body: JSON.stringify(
+					{
+						"phone": getters.getPhoneNumberInCorrectForm(phone),
+						"code": code
+					}
+				)
+			})
+		},
+		async sendPhoneNumber({getters, commit, dispatch}, phoneNumber)
+		{
 			
+			let fetchAnswer = await dispatch('fetchPhone', phoneNumber);
+			commit('setLoginStep', 2)
+		},
+		async checkCode({commit, getters, dispatch}, fetchData) 
+		{
+			let response = await dispatch('fetchUserCode', fetchData)
 			let fetchAnswer = await response.json();
-
 			localStorage.setItem("userToken", fetchAnswer.token)
 			if(fetchAnswer.success)
 				commit('setLoginStep', 3)

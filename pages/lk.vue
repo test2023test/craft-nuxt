@@ -113,63 +113,7 @@
 		<!-- Section Instant-->
 		<InstantSection/>
 		<!-- Section Prizes-->
-		<section class="section-prizes section-prizes--lk container">
-			<h2 class="section-prizes__title">
-				Вы накопили
-				
-				<span class="text-orange section-prizes__title-number">150</span>
-				<span class="text-orange">баллов!</span>
-			</h2>
-			<div class="section-prizes__grid">
-				<!-- Prize-->
-				<article class="prize">
-					<p class="prize__label prize__label--light">Розыгрыш каждые 2 дня</p>
-					<p class="prize__condition">Среди всех, у кого не менее 100 баллов</p>
-					<picture>
-						<source srcset="images/prize-img1@1x.webp, images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img1@1x.png" srcset="images/prize-img1@2x.png 2x" alt=""/>
-					</picture>
-					<h3 class="prize__title">Ящик классического пива</h3>
-					<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					<div class="prize__status">
-						<svg class="prize__status-icon">
-							<use xlink:href="#thumbs-up"></use>
-						</svg>Вы участвуете!
-					</div>
-				</article>
-				<!-- Prize-->
-				<article class="prize">
-					<p class="prize__label">Еженедельный розыгрыш</p>
-					<p class="prize__condition">Среди всех, у кого не менее 250 баллов</p>
-					<picture>
-						<source srcset="images/prize-img2@1x.webp, images/prize-img2@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img2@1x.png" srcset="images/prize-img2@2x.png 2x" alt=""/>
-					</picture>
-					<h3 class="prize__title">Электрогриль *</h3>
-					<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					<div class="prize__progress">
-						<div class="prize__progress-value prize__progress-value--yellow" style="width:30%"></div>
-					</div>
-					<p class="prize__progress-text">Необходимо ещё 100 баллов для участия</p>
-				</article>
-				<!-- Prize-->
-				<article class="prize prize--main">
-					<p class="prize__label prize__label--light">
-						<svg class="prize__label-icon">
-							<use xlink:href="#star"></use>
-						</svg>Главный приз
-					</p>
-					<p class="prize__condition">Среди всех, у кого не менее 1000 баллов</p>
-					<picture>
-						<source srcset="images/prize-img3@1x.webp, images/prize-img3@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img3@1x.png" srcset="images/prize-img3@2x.png 2x" alt=""/>
-					</picture>
-					<h3 class="prize__title">Путешествие на двоих *</h3>
-					<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					<div class="prize__progress">
-						<div class="prize__progress-value prize__progress-value--green" style="width:70%"></div>
-					</div>
-					<p class="prize__progress-text">Необходимо ещё 100 баллов для участия</p>
-				</article>
-			</div>
-		</section>
+		<BasicLotterySection isLk/>
 		<!-- Section Instant Prizes-->
 		<section class="section-instant-prizes container">
 			<h2 class="section-instant-prizes__title"></h2>

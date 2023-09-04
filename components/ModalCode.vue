@@ -51,7 +51,7 @@
 		</div>
 		<div class="modal__body" v-else>
 			<div class="modal__content">
-				<div class="modal__content-box">
+				<form @submit.prevent="sendCode" class="modal__content-box">
 					<div class="modal__title-box">
 						<div class="modal__wrap">
 							<h2 class="modal__title">Зарегистрировать код</h2>
@@ -70,11 +70,23 @@
 					<div class="modal__wrap">
 						<div class="form-group">
 							<label class="form-group__label">Имя</label>
-							<input class="form-group__input" type="text" name="first-name" placeholder="Введите имя">
+							<input
+								class="form-group__input"
+								type="text"
+								name="first-name"
+								placeholder="Введите имя"
+								v-model="firstName"
+							>
 						</div>
 						<div class="form-group">
 							<label class="form-group__label">Фамилия</label>
-							<input class="form-group__input" type="text" name="first-name" placeholder="Введите фамилию">
+							<input
+								class="form-group__input"
+								type="text"
+								name="first-name"
+								placeholder="Введите фамилию"
+								v-model="lastName"
+							>
 						</div>
 						<div class="form-group">
 							<p class="form-group__label">Город</p>
@@ -94,30 +106,17 @@
 								</ul>
 							</div>
 						</div>
-						<div class="modal__form-panel">
-							<div class="form-group">
-								<label class="form-group__label">Телефон</label>
-								<div class="form-group__row">
-									<input class="form-group__input" type="tel" name="phone" value="+7">
-									<button class="button button--white form-group__confirm-btn">Подтвердить</button>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="form-group__label form-group__label--small">Введите код из SMS, который мы отправили 5 секунд назад</label>
-								<div class="form-group__row">
-									<input class="form-group__input" type="text" name="code" placeholder="Код">
-									<button class="button button--white form-group__confirm-btn">Отправить</button>
-								</div>
-							</div>
-							<p class="modal__hint">
-								Если код не пришёл, запросите
-								<a class="modal__hint-link" href="#">новый код</a>
-							</p>
-						</div>
+						<PhonePanel @getToken="setUserToken" />
 						<div class="modal__form-panel">
 							<div class="form-group">
 								<label class="form-group__label">Email</label>
-								<input class="form-group__input" type="email" name="email" placeholder="Введите email">
+								<input
+									class="form-group__input"
+									type="email"
+									name="email"
+									placeholder="Введите email"
+									v-model="email"
+								>
 							</div>
 							<p class="modal__hint modal__hint--yellow">E-mail ещё не подтверждён.</p>
 							<p class="modal__hint">
@@ -128,7 +127,7 @@
 						<div class="modal__form-panel modal__form-panel--orange">
 							<div class="form-group">
 								<label class="form-group__label">Код под крышкой</label>
-								<input class="form-group__input" type="text" name="code" placeholder="Введите код">
+								<input class="form-group__input" type="text" name="code" placeholder="Введите код" v-model="contentCode">
 							</div>
 							<p class="modal__hint">
 								Если вам не приходят коды по смс или есть другие проблемы с регистрацией кодов под крышкой, пожалуйста,
@@ -141,8 +140,13 @@
 							Даю согласие на обработку
 							<a class="text-orange" href="#">персональных данных</a></span>
 					</label>
-					<button class="button button--orange button--orange-md modal__btn">Отправить</button>
-				</div>
+					<button
+						class="button button--orange button--orange-md modal__btn" 
+						:disabled="!token || !!contentCode"
+					>
+						Отправить
+					</button>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -154,17 +158,41 @@
 	const runtimeConfig = useRuntimeConfig();
 	let store = useStore();
 	const contentCode = ref(''),
-		isError = ref(false);
+		isError = ref(false),
+		token = ref(''),
+		firstName = ref(''),
+		lastName = ref(''),
+		email = ref('');
 
+	function setUserToken(newToken)
+	{
+		token.value = newToken;
+	}
 	function sendCode()
 	{
-		let userToken = localStorage.getItem('userToken');
-		let sendData =  {
-			"firstName": store.state.user.data.firstName,
-			"lastName": store.state.user.data.lastName,
-			"email": store.state.user.data.email,
-			"content": contentCode.value
+		let userToken;
+		let sendData;
+		if(store.state.user.isLogin)
+		{			
+			userToken = localStorage.getItem('userToken');
+			sendData =  {
+				"firstName": store.state.user.data.firstName,
+				"lastName": store.state.user.data.lastName,
+				"email": store.state.user.data.email,
+				"content": contentCode.value
+			}
 		}
+		else
+		{
+			userToken = token.value;
+			sendData =  {
+				"firstName": firstName.value,
+				"lastName": lastName.value,
+				"email": email.value,
+				"content": contentCode.value
+			}
+		}
+		console.log('userToken sendData',userToken, sendData);
 		fetch(runtimeConfig.public.API_BASE_URL + '/code/?token=' + userToken, {
 			method: "POST",
 			headers: {

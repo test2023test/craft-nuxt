@@ -121,7 +121,6 @@ export default {
 			let route = getters.apiUrl + '/codes/' + '?token=' + localStorage.getItem('userToken') + `&page=${page}&per_page=${countOnPage}`;
 			await fetch(route).then(async (response)=>{
 					let data = await response.json()
-					console.log(data.userCodes);
 					commit('setActiveCodeList', data.userCodes)
 				})
 		}

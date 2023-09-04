@@ -122,45 +122,7 @@
 				</div>
 			</section>
 			<!-- Section Prizes-->
-			<section class="section-prizes section-prizes--sticker container">
-				<h2 class="section-prizes__title">
-					<svg class="section-prizes__title-icon">
-						<use xlink:href="#target"></use>
-					</svg>Призы за коллекции стикеров
-				</h2>
-				<div class="section-prizes__grid">
-					<!-- Prize-->
-					<article class="prize">
-						<p class="prize__label">Розыгрыш каждые 10 дней</p>
-						<p class="prize__condition">Среди всех, у кого 4 стикера<br>«Мини пивоварня»</p>
-						<picture>
-							<source srcset="images/prize-img4@1x.webp, images/prize-img4@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img4@1x.png" srcset="images/prize-img4@2x.png 2x" alt=""/>
-						</picture>
-						<h3 class="prize__title">30 литров пива</h3>
-						<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					</article>
-					<!-- Prize-->
-					<article class="prize">
-						<p class="prize__label">Розыгрыш каждые 10 дней</p>
-						<p class="prize__condition">Среди всех, у кого 4 стикера<br>«Варочный цех»</p>
-						<picture>
-							<source srcset="images/prize-img1@1x.webp, images/prize-img1@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img1@1x.png" srcset="images/prize-img1@2x.png 2x" alt=""/>
-						</picture>
-						<h3 class="prize__title">45 литров пива</h3>
-						<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					</article>
-					<!-- Prize-->
-					<article class="prize">
-						<p class="prize__label">Розыгрыш каждые 10 дней</p>
-						<p class="prize__condition">Среди всех, у кого 4 стикера<br>«Цех розлива пива»</p>
-						<picture>
-							<source srcset="images/prize-img5@1x.webp, images/prize-img5@2x.webp 2x" type="image/webp"/><img class="prize__img" src="images/prize-img5@1x.png" srcset="images/prize-img5@2x.png 2x" alt=""/>
-						</picture>
-						<h3 class="prize__title">60 литров пива</h3>
-						<p class="prize__players">Сейчас участвует: 1020 человек</p>
-					</article>
-				</div>
-			</section>
+			<StickerSectionPromo />
 		</div>
 	</main>
 </template>

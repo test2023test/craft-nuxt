@@ -104,7 +104,7 @@
 							<p class="modal__success-text">Ваш номер телефона подтверждён!</p>
 						</div>
 						<button
-							class="button button--orange button--orange-md" 
+							class="button button--orange button--orange-md modal__btn"
 							@click="login">Войти
 						</button>
 					</div>

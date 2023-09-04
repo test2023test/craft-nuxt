@@ -118,7 +118,7 @@
 							</div>
 						</div>
 						<button
-							class="button button--orange button--orange-md"
+							class="button button--orange button--orange-md modal__btn"
 							@click="closeModal"
 						>Обновить</button>
 					</form>

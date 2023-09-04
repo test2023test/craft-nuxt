@@ -86,7 +86,7 @@
 								<a class="text-orange" href="#">персональных данных</a></span>
 							<span class="form-group__error-text" data-v-inspector="components/ModalUser.vue:20:97">Объязательное поле</span>
 						</label>
-						<button class="button button--orange button--orange-md">Отправить</button>
+						<button class="button button--orange button--orange-md modal__btn">Отправить</button>
 					</form>
 				</div>
 			</div>

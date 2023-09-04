@@ -10,7 +10,11 @@
 				<use xlink:href="#pencil"></use>
 			</svg>
 		</button>
-		<button class="button button--outline-orange button--icon-only data-card__mobile-btn" aria-label="Edit">
+		<button
+			@click="showModal('code')"
+			class="button button--outline-orange button--icon-only data-card__mobile-btn"
+			aria-label="Edit"
+		>
 			<svg class="button__icon">
 				<use xlink:href="#pencil"></use>
 			</svg>

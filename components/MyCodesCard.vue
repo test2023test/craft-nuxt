@@ -2,8 +2,12 @@
 	<div class="data-card">
 		<div class="data-card__title-box">
 			<h2 class="data-card__title">Мои коды</h2>
-			<button class="button button--orange button--orange-xs data-card__desktop-btn">Зарегистрировать код</button>
-			<button class="button button--orange button--orange-xs button--icon-only data-card__mobile-btn" aria-label="Add code">
+			<button class="button button--orange button--orange-xs data-card__desktop-btn"
+			 @click="showModal('code')">Зарегистрировать код</button>
+			<button
+				class="button button--orange button--orange-xs button--icon-only data-card__mobile-btn"
+				@click="showModal('code')"
+			>
 				<svg class="button__icon">
 					<use xlink:href="#plus"></use>
 				</svg>
@@ -34,6 +38,7 @@
 	</div>
 </template>
 <script>
+	import { showModal } from '~/assets/js/components/modal.js';
 	export default {
 		data: ()=>({
 			page: 1,
@@ -55,7 +60,8 @@
 				this.countOnPage += 5;
 				await this.fetchCodes();
 				this.isListEnd = !(this.countOnPage <= this.$store.state.user.activeCodeList.length);
-			}
+			},
+			showModal: showModal
 		},
 
 	}

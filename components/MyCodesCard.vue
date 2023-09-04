@@ -35,7 +35,7 @@
 	export default {
 		data: ()=>({
 			page: 1,
-			countOnPage: 10,
+			countOnPage: 5,
 		}),
 		mounted()
 		{
@@ -49,7 +49,7 @@
 			},
 			loadMoreCode()
 			{
-				this.countOnPage += 10;
+				this.countOnPage += 5;
 				this.fetchCodes();
 			}
 		},

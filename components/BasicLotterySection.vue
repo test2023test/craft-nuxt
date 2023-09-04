@@ -5,7 +5,9 @@
 	>
 		<h2 class="section-prizes__title" v-if="props.isLk">
 			Вы накопили
-			<span class="text-orange section-prizes__title-number">150</span>
+			<span class="text-orange section-prizes__title-number">
+				{{$store.state.user.data.loyalty_points}}
+			</span>
 			<span class="text-orange">баллов!</span>
 		</h2>
 		<h2 class="section-prizes__title" v-else>
@@ -37,7 +39,7 @@
 						</svg>Вы участвуете!
 					</div>
 					<template v-else>
-						<Progressbar/>
+						<Progressbar :minPoints="lottery.minLoyaltyPoints"/>
 					</template>
 				</template>
 			</article>

@@ -138,17 +138,9 @@ export default {
 			return phoneNumber.replace(/[^+\d]/g, '').replace('+', '');
 		},
 		apiUrl: () => (useRuntimeConfig().public.API_BASE_URL),
-		instantStickers(state)
+		getStikerCount(store)
 		{
-			return state.stikerList.filter((item, index) => index > 11)
-		},
-		stickers(state)
-		{
-			return state.stikerList.filter((item, index) => index <= 11).reduce(
-				(result, item, index)=>{
-					result[Math.floor(index / 4)].push(item);
-					return result;
-				}, [[],[],[]])
-		}
+			return store.stikerList.reduce((result, item)=> result + item.activatedCount, 0)
+		}	
 	}
 };	

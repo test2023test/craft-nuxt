@@ -140,7 +140,10 @@ export default {
 		apiUrl: () => (useRuntimeConfig().public.API_BASE_URL),
 		getStikerCount(store)
 		{
-			return store.stikerList.reduce((result, item)=> result + item.activatedCount, 0)
+			return store.stikerList.reduce((result, item)=>
+			{
+				return result + item.activatedCount
+			}, 0)
 		}	
 	}
 };	

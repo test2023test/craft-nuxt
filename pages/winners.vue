@@ -5,7 +5,7 @@
 				<h1 class="section-winners__title">Победители</h1>
 				<div class="section-winners__row-box">
 					<TransitionGroup name="winners-list" tag="ul">
-						<div class="section-winners__row" v-for="winner of lotteryWinners">
+						<div class="section-winners__row" v-for="(winner, index) of lotteryWinners" :key="index">
 							<time class="section-winners__time section-winners__time--desktop">{{winner.lotteryDrawDate}}</time>
 							<p class="section-winners__text">
 								<time class="section-winners__time section-winners__time--mobile">{{winner.lotteryDrawDate}}</time><span>{{winner.userFirstName}}</span>
@@ -27,13 +27,15 @@
 					</TransitionGroup>
 				</div>
 				<div class="section-winners__button-box">
-					<button
-						v-if="countItems <= lotteryWinners.length"
-						@click="loadMore"
-						class="button button--orange button--orange-xs section-winners__button" 
-					>
-						Показать еще
-					</button>
+					<Transition name="winners-list">
+						<button
+							v-if="!isListEnd"
+							@click="loadMore"
+							class="button button--orange button--orange-xs section-winners__button" 
+						>
+							Показать еще
+						</button>
+					</Transition>
 				</div>
 			</div>
 		</section>
@@ -41,8 +43,9 @@
 </template>
 <script setup>
 	import { onMounted, ref } from "vue";
-	let countItems = ref(8);
+	let countItems = ref(1);
 	let lotteryWinners = ref([]);
+	let isListEnd = ref(false);
 	onMounted(()=>{
 		fetchLotteryWinners();
 	});
@@ -54,10 +57,11 @@
 			lotteryWinners.value = data.lotteryWinners;
 		})
 	}
-	function loadMore()
+	async function loadMore()
 	{
-		countItems.value += 8;
-		fetchLotteryWinners();
+		countItems.value += 1;
+		await fetchLotteryWinners();
+		isListEnd.value = !(countItems.value <= lotteryWinners.value.length);
 	}
 	
 </script>

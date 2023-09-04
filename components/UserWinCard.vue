@@ -5,7 +5,7 @@
 		</div>
 		<!-- Row-->
 		<TransitionGroup name="win-list" tag="ul">
-			<div class="data-card__row" v-for="winItem of winList">
+			<div class="data-card__row" v-for="(winItem, index) of winList" :key="index">
 				<div class="data-card__text-box">
 					<time class="data-card__time">08.07.2023</time>
 					<span class="data-card__text">
@@ -24,7 +24,7 @@
 		</TransitionGroup>
 		<div class="data-card__button-box">
 			<button
-				v-if="countItems <= winList.length"
+				v-if="!isListEnd"
 				class="button button--outline-orange data-card__more-button"
 				@click="loadMore"
 			>
@@ -40,6 +40,8 @@
 		import { onMounted, ref } from "vue";
 		let countItems = ref(2);
 		let winList = ref([]);
+		let isListEnd = ref(false);
+
 		onMounted(()=>{
 			fetchwinList();
 		});
@@ -51,17 +53,18 @@
 				winList.value = data.userLotteryResults;
 			})
 		}
-		function loadMore()
+		async function loadMore()
 		{
 			countItems.value += 1;
-			fetchwinList();
+			await fetchwinList();
+			isListEnd.value = countItems.value <= winList.value.length;
 		}
 
 </script>
 <style>
 .win-list-enter-active,
 .win-list-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
 }
 .win-list-enter-from,
 .win-list-leave-to {

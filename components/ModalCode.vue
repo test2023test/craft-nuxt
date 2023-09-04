@@ -192,7 +192,6 @@
 				"content": contentCode.value
 			}
 		}
-		console.log('userToken sendData',userToken, sendData);
 		fetch(runtimeConfig.public.API_BASE_URL + '/code/?token=' + userToken, {
 			method: "POST",
 			headers: {

@@ -99,34 +99,6 @@
 							</div>
 							<div class="modal__form-panel">
 								<div class="form-group">
-									<label class="form-group__label"
-									>
-										Телефон
-									</label>
-									<div class="form-group__row">
-										<input
-											class="form-group__input"
-											type="tel"
-											name="phone"
-											:value="phone"
-										>
-										<button class="button button--white form-group__confirm-btn">Подтвердить</button>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="form-group__label form-group__label--small">Введите код из SMS, который мы отправили 5 секунд назад</label>
-									<div class="form-group__row">
-										<input class="form-group__input" type="text" name="code" placeholder="Код">
-										<button class="button button--white form-group__confirm-btn">Отправить</button>
-									</div>
-								</div>
-								<p class="modal__hint">
-									Если код не пришёл, запросите
-									<a class="modal__hint-link" href="#">новый код</a>
-								</p>
-							</div>
-							<div class="modal__form-panel">
-								<div class="form-group">
 									<label class="form-group__label">Email</label>
 									<input
 										class="form-group__input"

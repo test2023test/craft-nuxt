@@ -16,7 +16,7 @@
 							<figure
 								class="instant-card instant-card--bg1"
 								:class="{'instant-card--disabled': !sticker.activatedCount}"
-								data-modal="sticker"
+								@click="openStickerDetail(sticker)"
 							>
 								<div class="instant-card__img-box">
 									<picture>
@@ -29,7 +29,7 @@
 									</picture>
 								</div>
 								<figcaption class="instant-card__text">{{sticker.name}}
-								<span class="instant-card__counter" v-if="sticker.activatedCount">sticker.activatedCount</span></figcaption>
+								<span class="instant-card__counter" v-if="sticker.activatedCount">{{sticker.activatedCount}}</span></figcaption>
 							</figure>
 						</div>
 					</template>
@@ -39,6 +39,9 @@
 	</section>
 </template>
 <script setup>
+	import { showModal } from '~/assets/js/components/modal.js';
+	import {useStore} from 'vuex';
+	const store = useStore();
 	const staticData = [
 		{
 			srcset: "images/instant-card-img1@1x.webp, images/instant-card-img1@2x.webp 2x",
@@ -69,6 +72,13 @@
 			imgSrcset: "images/instant-card-img7@2x.png 2x"
 		},
 	]
+	function openStickerDetail(stickerData)
+	{
+		if(stickerData.activatedCount){
+			store.commit('modal/setStickerData', stickerData);
+			showModal('sticker');
+		}
+	}
 </script>
 <style lang="scss">
 </style>

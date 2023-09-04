@@ -23,8 +23,13 @@
 							</figcaption>
 						</figure>
 						<div class="modal__wrap">
-							<p class="modal__subtitle">Стикер</p>
-							<h2 class="modal__title">«{{$store.state.modal.stikerData?.name}}»</h2>
+							<h2 class="modal__title" v-if="$store.state.modal.stikerData?.id>12">
+								Поздравляем! Ваш мгновенный приз – {{$store.state.modal.stikerData?.name}}
+							</h2>
+							<template v-else>
+								<p class="modal__subtitle">Стикер</p>
+								<h2 class="modal__title">«{{$store.state.modal.stikerData?.name}}»</h2>
+							</template>
 							<div class="modal__info-box" v-if="$store.state.modal.stikerData?.extraText">
 								<svg class="modal__info-box-icon">
 									<use xlink:href="#info"></use>
@@ -41,8 +46,10 @@
 						</svg>
 					</button>
 				</div>
-				<div class="modal__text-block" v-html="$store.state.modal.stikerData?.content">
-				</div>
+				<template v-if="$store.state.modal.stikerData?.content">
+					<div class="modal__text-block" v-html="$store.state.modal.stikerData?.content">
+					</div>
+				</template>
 				<button class="button button--orange button--orange-md modal__btn js-modal-close">Отлично!</button>
 			</div>
 		</div>

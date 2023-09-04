@@ -143,19 +143,12 @@
 	onMounted(()=>{
 		store.dispatch('user/getSticker');
 	});
-	function openStickerDetail(stickerId)
+	function openStickerDetail(stickerData)
 	{
-		store.commit('modal/setStickerData', 
-		{
-			"id": 24,
-			"name": store.state.user.stickerList[stickerId].name,
-			"iconUrl": store.state.user.stickerList[stickerId].iconUrl,
-			"activatedCount": 2,
-			"extraText": "Собери ещё 2 стикера из коллекции «Варочный цех» для участия в розыгрыше Путешествия",
-			"content": "<p>текст текст текст</p>",
-			"imageUrl": "https://...jpg"
-		});
-		showModal('sticker');
+		if(stickerData.activatedCount){
+			store.commit('modal/setStickerData', stickerData);
+			showModal('sticker');
+		}
 	}
 </script>
 <style lang="scss">

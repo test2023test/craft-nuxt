@@ -34,13 +34,13 @@
 					</svg>
 				</a>
 				</div>
-			<NuxtLink to="/lk" class="header__user-nav header__user-nav--active" v-else>
+			<NuxtLink @click.self to="/lk" class="header__user-nav header__user-nav--active" v-else>
 				<div class="header__user-nav-box">
 					<p class="header__user-name">
 						{{firstName}}
 						{{lastName}}
 					</p>
-					<button class="header__user-logout" @click.stop="exit">Выйти</button>
+					<button class="header__user-logout" @click.prevent.stop="exit">Выйти</button>
 				</div>
 				<svg class="header__user-icon">
 					<use xlink:href="#user-icon"></use>

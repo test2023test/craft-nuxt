@@ -6,66 +6,7 @@
 				<h1 class="section-data__title">Личный кабинет</h1>
 				<div class="section-data__grid">
 					<!-- Card-->
-					<div class="data-card">
-						<div class="data-card__title-box">
-							<h2 class="data-card__title">Мои коды</h2>
-							<button class="button button--orange button--orange-xs data-card__desktop-btn">Зарегистрировать код</button>
-							<button class="button button--orange button--orange-xs button--icon-only data-card__mobile-btn" aria-label="Add code">
-								<svg class="button__icon">
-									<use xlink:href="#plus"></use>
-								</svg>
-							</button>
-						</div>
-						<!-- Row-->
-						<div class="data-card__row">
-							<div class="data-card__text-box">
-								<time class="data-card__time">08.07.2023</time><span class="data-card__code">J8753G6F18KU</span>
-							</div><span class="data-card__status">Дубликат</span>
-						</div>
-						<!-- Row-->
-						<div class="data-card__row">
-							<div class="data-card__text-box">
-								<time class="data-card__time">08.07.2023</time><span class="data-card__code">J8753G6F18KU</span>
-							</div><span class="data-card__status">Неверный код</span>
-						</div>
-						<!-- Row-->
-						<div class="data-card__row">
-							<div class="data-card__text-box">
-								<time class="data-card__time">08.07.2023</time><span class="data-card__code">J8753G6F18KU</span>
-							</div><span class="data-card__status data-card__status--green">Одобрен</span>
-						</div>
-						<!-- Row-->
-						<div class="data-card__row">
-							<div class="data-card__text-box">
-								<time class="data-card__time">08.07.2023</time><span class="data-card__code">J8753G6F18KU</span>
-							</div><span class="data-card__status data-card__status--green">Одобрен</span>
-						</div>
-						<!-- Row-->
-						<div class="data-card__row data-card__row--hidden">
-							<div class="data-card__text-box">
-								<time class="data-card__time">08.07.2023</time><span class="data-card__code">J8753G6F18KU</span>
-							</div><span class="data-card__status data-card__status--green">Одобрен</span>
-						</div>
-						<!-- Row-->
-						<div class="data-card__row data-card__row--hidden">
-							<div class="data-card__text-box">
-								<time class="data-card__time">08.07.2023</time><span class="data-card__code">J8753G6F18KU</span>
-							</div><span class="data-card__status data-card__status--green">Одобрен</span>
-						</div>
-						<!-- Row-->
-						<div class="data-card__row data-card__row--hidden">
-							<div class="data-card__text-box">
-								<time class="data-card__time">08.07.2023</time><span class="data-card__code">J8753G6F18KU</span>
-							</div><span class="data-card__status data-card__status--green">Одобрен</span>
-						</div>
-						<div class="data-card__button-box">
-							<button class="button button--outline-orange data-card__more-button">Показать еще
-								<svg class="button__icon">
-									<use xlink:href="#refresh"></use>
-								</svg>
-							</button>
-						</div>
-					</div>
+					<MyCodesCard />
 					<!-- Card-->
 					<div class="data-card">
 						<div class="data-card__title-box">

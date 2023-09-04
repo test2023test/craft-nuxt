@@ -8,7 +8,8 @@ export default {
 				step: 1,
 			},
 			data:{},
-			stikerList: []
+			stikerList: [],
+			activeCodeList: []
 		}
 	},
 	mutations: {
@@ -30,6 +31,10 @@ export default {
 		setStikers(state, newStikerList)
 		{
 			state.stikerList = newStikerList
+		},
+		setActiveCodeList(state, newValue)
+		{
+			state.activeCodeList = newValue;
 		}
 	},
 	actions: {
@@ -111,6 +116,15 @@ export default {
 						commit('setStikers', resultData.stickers);
 				})
 		},
+		async fetchActiveCodeList({commit, getters}, {page, countOnPage })
+		{
+			let route = getters.apiUrl + '/codes/' + '?token=' + localStorage.getItem('userToken') + `&page=${page}&per_page=${countOnPage}`;
+			await fetch(route).then(async (response)=>{
+					let data = await response.json()
+					console.log(data.userCodes);
+					commit('setActiveCodeList', data.userCodes)
+				})
+		}
 	},
 	getters:
 	{

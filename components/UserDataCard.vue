@@ -4,7 +4,7 @@
 		<h2 class="data-card__title">Мои данные</h2>
 		<button
 			class="button button--outline-orange data-card__desktop-btn"
-			@click="showModal('user')"
+			@click="showUserDataModal"
 		>Редактировать
 			<svg class="button__icon">
 				<use xlink:href="#pencil"></use>
@@ -75,6 +75,11 @@
 	onMounted(()=>{
 		store.dispatch('user/getSticker');
 	})
+	function showUserDataModal()
+	{
+		showModal('user');
+		store.state.modal.getDataFunc();
+	}
 </script>
 <style lang="scss">
 </style>

@@ -111,10 +111,11 @@
 		})
 	}
 	function fetchCarrentCity(){
+		
 		fetch(runtimeConfig.public.API_BASE_URL + '/current-city/').then(async (response)=>{
 			let dataJson = await response.json();
 			if(dataJson.success)
-				activeCity.value = dataJson.currentCity;
+				selectActiveCity(dataJson.currentCity)
 		})
 	}
 </script>

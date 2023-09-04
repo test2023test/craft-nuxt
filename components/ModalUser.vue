@@ -45,7 +45,7 @@
 											class="option__input"
 											type="radio"
 											name="gender"
-											:value="store.state.user.data.sex === 'man'"
+											:checked="store.state.user.data.sex === 'man'"
 											@change="()=>{data.sex = 'man'}"
 										>
 										<p class="option__text">Муж
@@ -59,7 +59,7 @@
 											class="option__input"
 											type="radio"
 											name="gender"
-											:value="store.state.user.data.sex === 'woman'"
+											:checked="store.state.user.data.sex === 'woman'"
 											@change="()=>{data.sex = 'woman'}"
 										>
 										<p class="option__text">Жен
@@ -108,11 +108,13 @@
 										v-model="data.email"
 									>
 								</div>
-								<p class="modal__hint modal__hint--yellow">E-mail ещё не подтверждён.</p>
-								<p class="modal__hint">
-									Для подтверждения e-mail после обновления данных перейдите по ссылке из письма и получите
-									<span class="text-white">+50 баллов.</span>
-								</p>
+								<template v-if="!data.isConfirmedEmail">
+									<p class="modal__hint modal__hint--yellow">E-mail ещё не подтверждён.</p>
+									<p class="modal__hint">
+										Для подтверждения e-mail после обновления данных перейдите по ссылке из письма и получите
+										<span class="text-white">+50 баллов.</span>
+									</p>
+								</template>
 							</div>
 						</div>
 						<button
@@ -127,7 +129,7 @@
 </template>
 <script setup>
 	import { closeModal } from '~/assets/js/components/modal.js'
-	import { computed, ref } from "vue"
+	import { computed, ref, onMounted } from "vue"
 	import { useStore } from "vuex";
 	const store = useStore();
 
@@ -137,9 +139,12 @@
 		lastName:  "",
 		sex:  "",
 		dateOfBirth:  "",
-		email:  ""
+		email:  "",
+		isConfirmedEmail: false,
 	})
-
+	onMounted(()=>{
+		store.commit('modal/setDataFunc', setData);
+	})
 
 	const phone = computed(() => {
 		if(store.state.user.data.phone)
@@ -153,6 +158,16 @@
 	const dateInFormToSend = computed(() => {
 		return data.value.dateOfBirth.replaceAll('.', '-');
 	});
+	function setData()
+	{
+		data.value.firstName = store.state.user.data.firstName;
+		data.value.lastName = store.state.user.data.lastName;
+		data.value.sex = store.state.user.data.sex;
+		data.value.dateOfBirth = store.state.user.data.dateOfBirth;
+		data.value.email = store.state.user.data.email;
+		console.log(store.state.user.data.isConfirmedEmail);
+		data.value.isConfirmedEmail = store.state.user.data.isConfirmedEmail;
+	}
 	async function submitData()
 	{
 		await store.dispatch('user/updateUserData', 

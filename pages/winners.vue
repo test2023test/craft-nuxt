@@ -4,25 +4,27 @@
 			<div class="container">
 				<h1 class="section-winners__title">Победители</h1>
 				<div class="section-winners__row-box">
-					<div class="section-winners__row" v-for="winner of lotteryWinners">
-						<time class="section-winners__time section-winners__time--desktop">{{winner.lotteryDrawDate}}</time>
-						<p class="section-winners__text">
-							<time class="section-winners__time section-winners__time--mobile">{{winner.lotteryDrawDate}}</time><span>{{winner.userFirstName}}</span>
-						</p>
-						<p class="section-winners__text">{{winner.userPhone}}</p>
-						<p class="section-winners__text">
-							<template v-if="winner.lotteryType === 'instant'">
-								Мгновенный приз
-							</template>
-							<template v-if="winner.lotteryType === 'basic'">
-								Обычная лотерея
-							</template>
-							<template v-if="winner.lotteryType === 'collection'">
-								Коллекция стикеров
-							</template>
-						</p>
-						<p class="section-winners__text">{{winner.prizeName}}</p>
-					</div>
+					<TransitionGroup name="winners-list" tag="ul">
+						<div class="section-winners__row" v-for="winner of lotteryWinners">
+							<time class="section-winners__time section-winners__time--desktop">{{winner.lotteryDrawDate}}</time>
+							<p class="section-winners__text">
+								<time class="section-winners__time section-winners__time--mobile">{{winner.lotteryDrawDate}}</time><span>{{winner.userFirstName}}</span>
+							</p>
+							<p class="section-winners__text">{{winner.userPhone}}</p>
+							<p class="section-winners__text">
+								<template v-if="winner.lotteryType === 'instant'">
+									Мгновенный приз
+								</template>
+								<template v-if="winner.lotteryType === 'basic'">
+									Обычная лотерея
+								</template>
+								<template v-if="winner.lotteryType === 'collection'">
+									Коллекция стикеров
+								</template>
+							</p>
+							<p class="section-winners__text">{{winner.prizeName}}</p>
+						</div>
+					</TransitionGroup>
 				</div>
 				<div class="section-winners__button-box">
 					<button
@@ -51,7 +53,6 @@
 			let data = await res.json();
 			lotteryWinners.value = data.lotteryWinners;
 		})
-		
 	}
 	function loadMore()
 	{
@@ -60,5 +61,19 @@
 	}
 	
 </script>
-<style lang="scss">
+<style>
+.winners-list-enter-active,
+.winners-list-leave-active {
+  transition: all 0.5s ease;
+}
+.winners-list-enter-from,
+.winners-list-leave-to {
+  opacity: 0;
+  -webkit-transform: scale(0) translateX(-10%);
+      -ms-transform: scale(0) translateX(-10%);
+          transform: scale(0) translateX(-10%);
+  margin-bottom: 0;
+  max-height: 0;
+  overflow: hidden; 
+}
 </style>

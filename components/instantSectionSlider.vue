@@ -11,7 +11,7 @@
 					<!-- Slide-->
 					<figure
 						class="instant-prize swiper-slide"
-						v-for="(sticker, index) of $store.getters['user/instantStickers']"
+						v-for="(sticker, index) of $store.state.lottery.instant"
 					>
 						<div class="instant-prize__img-box">
 							<picture>
@@ -47,7 +47,7 @@
 	const sliderSection = ref('sliderSection');
 
 	onMounted( async ()=>{
-		await useStore().dispatch('user/getSticker');
+		await useStore().dispatch('lottery/fetchInstantLottery');
 		sliderInit('instant-slider','instant-next','instant-prev');
 	})
 

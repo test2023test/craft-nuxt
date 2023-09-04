@@ -11,25 +11,25 @@
 			</p>
 			<div class="swiper section-instant__slider-elem">
 				<div class="swiper-wrapper section-instant__grid">
-					<template v-for="(sticker, index) of $store.getters['user/instantStickers']" >
+					<template v-for="(lottery, index) of $store.state.lottery.instant" >
 						<div class="section-instant__grid-col swiper-slide">
 							<figure
 								class="instant-card instant-card--bg1"
-								:class="{'instant-card--disabled': !sticker.activatedCount}"
-								@click="openStickerDetail(sticker)"
+								:class="{'instant-card--disabled': !lottery.isParticipant}"
+								@click="openStickerDetail(lottery)"
 							>
 								<div class="instant-card__img-box">
 									<picture>
 										<source :srcset="staticData[index].srcset " type="image/webp"/>
 										<img
 											class="instant-card__img"
-											:src="sticker.iconUrl"
+											:src="lottery.stickers[0].iconUrl"
 											:srcset="staticData[index].imgSrcset" alt=""
 										/>
 									</picture>
 								</div>
-								<figcaption class="instant-card__text">{{sticker.name}}
-								<span class="instant-card__counter" v-if="sticker.activatedCount">{{sticker.activatedCount}}</span></figcaption>
+								<figcaption class="instant-card__text">{{lottery.name}}
+								<span class="instant-card__counter" v-if="lottery.activatedCount">{{lottery.activatedCount}}</span></figcaption>
 							</figure>
 						</div>
 					</template>
@@ -40,13 +40,19 @@
 </template>
 <script setup>
 	import { showModal } from '~/assets/js/components/modal.js';
-	import {useStore} from 'vuex';
+	import { useStore } from 'vuex';
 	import { staticData } from "~/assets/json/intantStikerStatic";
+	import { onMounted } from "vue"; 
 	const store = useStore();
-	function openStickerDetail(stickerData)
+	onMounted(()=>{
+		store.dispatch('lottery/fetchInstantLottery');
+	})
+	function openStickerDetail(lottery)
 	{
-		if(stickerData.activatedCount){
-			store.commit('modal/setStickerData', stickerData);
+
+		if(lottery.isParticipant)
+		{
+			store.commit('modal/setStickerData', lottery.stickers[0]);
 			showModal('sticker');
 		}
 	}

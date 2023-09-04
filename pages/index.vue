@@ -76,7 +76,7 @@
 					тем ВЫШЕ ШАНС получить призы!
 				</p>
 			</section>
-			<intantSectionSlider />
+			<instantSectionSlider />
 			<!-- Section Prizes-->
 			<section class="section-prizes section-prizes--score container">
 				<h2 class="section-prizes__title">

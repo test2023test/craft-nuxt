@@ -108,7 +108,7 @@
 										v-model="data.email"
 									>
 								</div>
-								<template v-if="!data.isConfirmedEmail">
+								<template v-if="!data.gotEmailBonus">
 									<p class="modal__hint modal__hint--yellow">E-mail ещё не подтверждён.</p>
 									<p class="modal__hint">
 										Для подтверждения e-mail после обновления данных перейдите по ссылке из письма и получите
@@ -140,7 +140,7 @@
 		sex:  "",
 		dateOfBirth:  "",
 		email:  "",
-		isConfirmedEmail: false,
+		gotEmailBonus: false,
 	})
 	onMounted(()=>{
 		store.commit('modal/setDataFunc', setData);
@@ -165,11 +165,12 @@
 		data.value.sex = store.state.user.data.sex;
 		data.value.dateOfBirth = store.state.user.data.dateOfBirth;
 		data.value.email = store.state.user.data.email;
-		console.log(store.state.user.data.isConfirmedEmail);
-		data.value.isConfirmedEmail = store.state.user.data.isConfirmedEmail;
+		data.value.gotEmailBonus = store.state.user.data.gotEmailBonus;
 	}
 	async function submitData()
 	{
+		if(isEmailChange())
+			fetchVerificateEmail();
 		await store.dispatch('user/updateUserData', 
 			{
 				"firstName": data.value.firstName,
@@ -179,6 +180,18 @@
 				"email": data.value.email
 			}
 		)
+		
+	}
+	function isEmailChange()
+	{
+		
+		console.log(data.value.email);
+		console.log(store.state.user.data.email);
+		return !(data.value.email === store.state.user.data.email);
+	}
+	function fetchVerificateEmail()
+	{
+		store.dispatch('user/fetchVerificateEmail', data.value.email)
 	}
 </script>
 <style lang="scss">

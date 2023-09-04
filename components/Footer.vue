@@ -21,5 +21,6 @@
 		<ModalCode />
 		<ModalUser />
 		<ModalStiker />
+		<ModalEmailSuccess />
 	</footer>
 </template>

@@ -35,7 +35,7 @@
 		</svg>
 		{{store.state.user.data.email}}
 	</p>
-	<div class="data-card__info-box" v-if="!store.state.user.data.isConfirmedEmail">
+	<div class="data-card__info-box" v-if="!store.state.user.data.gotEmailBonus">
 		<p class="data-card__info-text-big">
 			Получите +50 баллов
 			<br class="show-desktop">за подтверждение e-mail

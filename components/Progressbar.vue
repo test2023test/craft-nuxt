@@ -14,7 +14,7 @@
 		computed: {
 			proccess()
 			{
-				return Math.ceil(this.minPoints / +this.$store.state.user.data.loyalty_points * 10);
+				return Math.ceil(+this.$store.state.user.data.loyalty_points / (this.minPoints / 100));
 			}
 		}
 	}

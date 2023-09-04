@@ -86,6 +86,18 @@
 </template>
 <script setup>
 	import {showModal} from '~/assets/js/components/modal.js'
+	import {useStore} from 'vuex';
+	definePageMeta({
+		middleware: [
+		async function (to, from) {
+			if(from.name === "verificate-emailCode")
+			{
+				if(await useStore().dispatch('user/sendEmailCode', from.params.emailCode))
+					setTimeout(()=>showModal('emailSuccess'), 500)
+			}
+		}]
+	})
+
 </script>
 <style lang="scss">
 </style>

@@ -67,8 +67,7 @@ export default {
 			})
 		},
 		async sendPhoneNumber({getters, commit, dispatch}, phoneNumber)
-		{
-			
+		{	
 			let fetchAnswer = await dispatch('fetchPhone', phoneNumber);
 			commit('setLoginStep', 2)
 		},
@@ -130,7 +129,24 @@ export default {
 					let data = await response.json()
 					commit('setActiveCodeList', data.userCodes)
 				})
-		}
+		},
+		async fetchVerificateEmail({getters}, email)
+		{
+			let route = `${getters.apiUrl}/send-email-code/?token=${localStorage.getItem('userToken')}&email=${email}`;
+			await fetch(route).then(async (response)=>{
+				let data = await response.json();
+				return data.success
+			})
+		},
+		async sendEmailCode({state, getters}, emailCode)
+		{
+			let route = `${getters.apiUrl}/check-email-code/?token=${localStorage.getItem('userToken')}&code=${emailCode}`;
+			return await fetch(route).then(async (response)=>{
+
+				let data = await response.json();
+				return data.success
+			})
+		},
 	},
 	getters:
 	{

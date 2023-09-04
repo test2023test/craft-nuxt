@@ -8,7 +8,7 @@
 		<div class="section-prizes__grid">
 			<!-- Prize-->
 			<article class="prize" v-for="(lottery, lotteryIndex) of $store.state.lottery.collection">
-				<p class="prize__label">Розыгрыш каждые 10 дней</p>
+				<p class="prize__label" v-if="lottery.periodicity">{{lottery.periodicity}}</p>
 				<p class="prize__condition">Среди всех, у кого 4 стикера<br>{{lottery.name}}</p>
 				<picture>
 					<source :srcset="staticData[lotteryIndex].srcset" type="image/webp"/><img class="prize__img" :src="staticData[lotteryIndex].srcimg" alt=""/>

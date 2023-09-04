@@ -18,7 +18,16 @@
 		<div class="section-prizes__grid">
 			<!-- Prize-->
 			<article class="prize" v-for="(lottery, index) of $store.state.lottery.basic">
-				<p class="prize__label prize__label--light">Розыгрыш каждые 2 дня</p>
+				<p 
+					class="prize__label"
+					:class="{'prize__label--light': index === 0 || index === 2}"
+					v-if="lottery.periodicity"
+				>
+				<svg class="prize__label-icon" v-if="index === 2">
+					<use xlink:href="#star"></use>
+				</svg>
+					{{lottery.periodicity}}
+				</p>
 				<p class="prize__condition">{{lottery.description}}</p>
 				<picture>
 					<source :srcset="staticData[index].srcset" type="image/webp"/><img class="prize__img" :src="staticData[index].srcimg" alt=""/>
